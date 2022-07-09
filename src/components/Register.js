@@ -1,14 +1,13 @@
 
 import React from 'react';
 
-export const CreateProduct = () => {
+export const Register = () => {
+
+
   return (
     <div>
-        <h1>Agregar Producto</h1>
+        <h1>Registrarme</h1>
         <hr/>
-
-
-
     </div>
   )
 }

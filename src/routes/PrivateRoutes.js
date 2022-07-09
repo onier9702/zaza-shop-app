@@ -18,7 +18,6 @@ export const PrivateRoutes = () => {
         <IsActiveNavbar />
 
         <Routes>
-            <Route path='/' element={ <User /> } />
             <Route path='/newProduct' element={ <CreateProduct /> } />
             <Route path='/newCategory' element={ <CreateCategory /> } />
             <Route path='/home' element={ <Home /> } />

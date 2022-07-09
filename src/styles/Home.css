@@ -1,0 +1,37 @@
+.home{
+    display: inline-flex;
+    width: 100%;
+}
+
+.home .logo {
+    display: inline-flex;  
+    margin-left: 15px;
+}
+
+.home .logo li {
+    margin-right: 2.5px;
+    list-style: none;
+}
+
+.home .logo li  .first-letter{
+    color: red;
+}
+.home .logo li  .second-letter{
+    color: blue;
+}
+.home .logo li .third-letter{
+    color: yellow;
+}
+.home .logo li .fourth-letter{
+    color: green;
+}
+
+.home .form-search {
+    width: 150px;
+    position: absolute;
+    right: 14px;
+}
+
+
+
+

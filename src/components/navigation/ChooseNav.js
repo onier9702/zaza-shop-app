@@ -1,8 +1,10 @@
-import { React, useState } from 'react';
-import { PrivNavbar } from './PrivNavbar';
 
-export const IsActiveNavbar = () => {
+import React, { useState } from 'react';
 
+import { MobileNav } from './MobileNav';
+import '../../styles/Navbar.css';
+
+export const ChooseNav = () => {
 
     const [active, setActive] = useState(false);
 
@@ -22,7 +24,7 @@ export const IsActiveNavbar = () => {
             (active) ?  <i onClick={handleClick} class="bi bi-x-circle" ></i>  :  <i onClick={handleClick} className="bi bi-list" ></i>  
         }
         {
-            (active) && <PrivNavbar isMob={true} closeMenu={closeMenu}/>
+            (active) && <MobileNav isMob={true} closeMenu={closeMenu}/>
         }
     </div>
       
