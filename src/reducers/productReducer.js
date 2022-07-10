@@ -29,6 +29,12 @@ export const productReducer = (state = initialState, action) => {
                 ...state,
                 products: [...action.payload]
             }
+
+        case types.productActive:
+            return {
+                ...state,
+                activeProduct: {...action.payload}
+            }
     
         default:
             return state;

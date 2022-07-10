@@ -1,20 +1,35 @@
 
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { findActiveProduct } from '../../actions/homeEvents';
 
 // import '../../styles/HomeAllProducts.css';
-import '../../styles/Carousel2.css';
+import '../../styles/home/Carousel2.css';
 
 
 export const LastProducts = ({product}) => {
+
+  const navigate = useNavigate();
+  const {products} = useSelector( state => state.product);
+  const dispatch   = useDispatch();
+
+  const handleSeeProductHome = (e) => {
+    const currentId = e.target.id;
+    
+    dispatch( findActiveProduct(currentId, products) );  // activate on Redux the clicked Product
+    navigate('/singleProduct');
+  };
 
   return (
 
     // <div className="last-imgs">
     <>
         <div className="slide">
-          <div className="cuadro-product">
-            <img src={product.img} alt="img" />
-            <span className="color-precio" >{product.precio}</span>
+          <div onClick={handleSeeProductHome} className="cuadro-product">
+            <img  src={product.img} alt="img" id={product._id} />
+            <span className="color-precio" >{`Precio ${product.precio}`}</span>
+
           </div>
         </div>
     </>

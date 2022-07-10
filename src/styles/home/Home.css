@@ -45,43 +45,25 @@
     display: inline-flex;
     margin-left: 25px;
     margin-bottom: 20px;
-    overflow-x: hidden;
-    width: 100%;
+    overflow-x: auto;
+    width: auto;
 }
-
-/* Show last products */
-.show-last-products{
+.show-categories::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+.div-recent{
     display: flex;
-    flex-direction: row;
-    /* padding: 12px; */
-    margin-left: 25px;
-    /* overflow: hidden; */
-    /* width: 400vw; */
+    justify-content: center;
+    align-items: center;
+    width: 200px;
 }
-/* .show-last-products .next {
-    position: relative;
-    top: 130px;
-    left: 100px;
-    
+.div-recent .text-recientes{
+    margin-top: 3px;
+    margin-right: 8px;
 }
-.show-last-products .prev{
-    position: relative;
-    top: 130px;
-    left: 100px;
-} */
-
-.show-last-products i:hover , .show-last-products i:focus {
-    color: #1e6091;
-}
-.show-last-products .icon-right{
-    position: relative;
-    top: 140px;
-    left: 90%;
-}
-.show-last-products .icon-left{
-    position: relative;
-    top: 140px;
-    left: 0%;
+.div-recent i:hover{
+    color: blue;
 }
 
 

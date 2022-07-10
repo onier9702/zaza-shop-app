@@ -2,7 +2,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import '../../styles/Home.css';
+import '../../styles/home/Home.css';
 import { Logo } from '../Logo';
 import { AllCateg } from './AllCateg';
 import { CarouselProducts } from './CarouselProducts';
@@ -45,6 +45,11 @@ export const Home = () => {
             <AllCateg key={index} category={cate} />
           ) )
         }
+      </div>
+      
+      <div className="div-recent">
+        <h4 className="text-recientes">Recientes </h4>
+        <i className="bi bi-arrow-right" id="icon-recent"></i>
       </div>
 
       <CarouselProducts />

@@ -3,25 +3,30 @@
 .body{
     padding: 0px;
     margin: 0px;
-    height: 400px;
+    /* height: 400px; */
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
-    padding: 0;
+    overflow-x: hidden;
+    /* width: fit-content; */
     /* background-color: grey; */
 }
 
 .slider {
-    /* width: 500px; */
-    /* height: 350px; */
-    margin-bottom: 20px;
-    overflow: hidden;
+    width: fit-content;
+    height: auto;
+    /* margin-bottom: 20px; */
+    overflow-x: auto;
 
 }
+.slider::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
  .slides {
-    width: 500%;
-    height: 320px;
+    width: fit-content;
+    height: 350px;
     display: flex;
 }
 .slides input {
@@ -32,22 +37,25 @@
     transition: 2s;
 }
 .slide .cuadro-product{
+    background-color: gray;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     margin-left: 10px;
     margin-right: 20px;
 }
-.slide .cuadro-product span{
+.slide .cuadro-product .color-precio{
     color: rgb(47, 253, 47);
-    margin-left: 102px;
+    padding-bottom: 10px;
+    margin-left: 70px;
 }
 .slide .cuadro-product img {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     height: 250px;
     width: 220px;
 }
 /* Css for manual-navigation */
-.manual-navigation {
+/* .manual-navigation {
     position: absolute;
     top: 80%;
     left: 44%;
@@ -87,65 +95,7 @@
 }
 #radio7:checked ~ .first{
     margin-left: -1240px;
-}
-/*
-.manual-navigation .manual-btn {
-    margin-right: 20px;
-    transition: 1s;
-}
-.manual-navigation .manual-btn:active {
-    background: gray;
-}
-
-/* Css for auto-navigation */
-/* .auto-navigation {
-    position: absolute;
-    top: 60%;
-    left: 44%;
-    display: flex;
-}
-.auto-navigation div {
-    border: 0px solid gray;
-    border-radius: 10px;
-    margin-right: 20px;
-    padding: 5px;
-    transition: 1s;
 } */
-
-/* @media (max-width:790px) {
-    .manual-navigation {
-        top: 50%;  
-    }
-}
-
-@media (max-width:480px) {
-    .slider {
-        width: 100vw;
-        height: 22vh;
-    }
-    .manual-navigation {
-        top: 28%; 
-        left: 42%;
-    }
-    #radio1:checked ~ .first{
-        margin-left: 3%;
-    }
-    #radio2:checked ~ .first{
-        margin-left: -90vw;
-    }
-    #radio3:checked ~ .first{
-        margin-left: -190vw;
-    }
-} */
-
-
-
-
-
-
-
-
-
 
 
 

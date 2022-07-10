@@ -1,0 +1,69 @@
+
+/* Login Css */
+
+.container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+
+}
+.container h3{
+    margin-top: 10px;
+    color: blue;
+}
+
+.container .content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container .content input{
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 200px;
+}
+
+.container .content input:hover , .container .content input:focus{
+    border: none;
+    /* border-bottom: 0.4px solid grey; */
+    box-shadow: 1px 1px 6px 1px rgb(37, 142, 228) ;
+}
+
+.container .content button{
+    background-color: #8ecae6;
+    border: none;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.container .content button:hover{
+    background-color: #219ebc;
+}
+
+.container .content .link link{
+    text-decoration-line: none;
+    /* text-decoration: none; */
+}
+
+a{
+    text-decoration: none;
+}
+a:hover, a:focus{
+    color: black;
+}
+
+/* .attention {
+    padding: 20px;
+} */
+
+
+
+
+

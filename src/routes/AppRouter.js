@@ -5,15 +5,16 @@ import {  Route, Routes } from 'react-router-dom';
 
 
 import { startLoadAllCategories, startLoadAllProducts } from '../actions/homeEvents';
-import '../styles/Home.css';
+import '../styles/home/Home.css';
 
 import { CreateCategory } from '../components/CreateCategory';
 import { CreateProduct } from '../components/CreateProduct';
 import { Home } from '../components/Home/Home';
-import { Login } from '../components/Login';
+import { LoginScreen } from '../components/Login';
 import { MyProfile } from '../components/MyProfile';
 import { ChooseNav } from '../components/navigation/ChooseNav';
-import { Register } from '../components/Register';
+import { RegisterScreen } from '../components/Register';
+import { SingleProduct } from '../components/Home/SingleProduct';
 
 
 
@@ -36,10 +37,11 @@ export const AppRouter = () => {
         <Routes>
             <Route path='/' element={ <Home /> } />
             <Route path='/user' element={ <MyProfile /> } />
-            <Route path='/login' element={ <Login /> } />
-            <Route path='/register' element={ <Register /> } />
+            <Route path='/login' element={ <LoginScreen /> } />
+            <Route path='/register' element={ <RegisterScreen /> } />
             <Route path='/newProduct' element={ <CreateProduct /> } />
             <Route path='/newCategory' element={ <CreateCategory /> } />
+            <Route path='/singleProduct' element={ <SingleProduct /> } />
 
         </Routes>
     </div>

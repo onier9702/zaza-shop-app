@@ -57,8 +57,26 @@ const setAllProducts = ( products ) => ({
     payload: products
 });
 
+const findActiveProduct = (id = '', products = []) => {
+
+    return (dispatch) => {
+
+        let newArr = [];
+        products.forEach( p => newArr.push(p) );
+
+        const activeProduct = newArr.find( prod => prod._id === id );
+        console.log(activeProduct);
+        dispatch( setActiveProduct(activeProduct) );
+    }
+};
+
+const setActiveProduct = ( product = {} ) => ({
+    type: types.productActive,
+    payload: product
+})
 
 export {
     startLoadAllCategories,
-    startLoadAllProducts
+    startLoadAllProducts,
+    findActiveProduct
 }

@@ -1,0 +1,23 @@
+
+.single-product{
+    /* padding: 6px; */
+}
+.single-product i{
+    font-size: 2.5rem;
+}
+.single-product i:hover , .single-product i:focus {
+    color: blue;
+    cursor: pointer;
+}
+
+.single-product .info-product{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 10px 50px;
+}
+.single-product .info-product > *{
+    margin: 6px;
+}
+.single-product .info-product img{
+    width: 25vw;
+}

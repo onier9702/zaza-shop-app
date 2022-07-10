@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 import { MobileNav } from './MobileNav';
-import '../../styles/Navbar.css';
+import '../../styles/home/Navbar.css';
 
 export const ChooseNav = () => {
 

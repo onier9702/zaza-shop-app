@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../styles/Navbar.css';
+import '../../styles/home/Navbar.css';
 
 export const MobileNav = ({isMob,closeMenu}) => {
 

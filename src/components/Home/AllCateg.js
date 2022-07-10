@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import '../../styles/HomeAllCateg.css';
+import '../../styles/home/HomeAllCateg.css';
 
 export const AllCateg = ({category}) => {
 
