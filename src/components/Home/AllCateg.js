@@ -1,12 +1,14 @@
 
 import React from 'react';
 
-export const AllCateg = () => {
+import '../../styles/HomeAllCateg.css';
+
+export const AllCateg = ({category}) => {
 
 
   return (
     <div className="cuadro-categ">
-        <span></span>
+        <span>{category.name}</span>
     </div>
   )
 }

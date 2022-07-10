@@ -2,9 +2,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {  Route, Routes } from 'react-router-dom';
-import { startLoadAllCategories } from '../actions/homeEvents';
 
 
+import { startLoadAllCategories, startLoadAllProducts } from '../actions/homeEvents';
+import '../styles/Home.css';
 
 import { CreateCategory } from '../components/CreateCategory';
 import { CreateProduct } from '../components/CreateProduct';
@@ -24,12 +25,13 @@ export const AppRouter = () => {
   useEffect(() => {
 
     dispatch( startLoadAllCategories() );
+    dispatch( startLoadAllProducts() );
     
   }, []);
   
 
   return (
-    <div>
+    <div className="boss">
         <ChooseNav/>
         <Routes>
             <Route path='/' element={ <Home /> } />

@@ -1,5 +1,13 @@
+
+/* Boss, the first div root*/
+.boss{
+    margin: 0px;
+    padding: 0px;
+    /* overflow-x: hidden; */
+}
 .home{
     display: inline-flex;
+    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -30,6 +38,50 @@
     width: 150px;
     position: absolute;
     right: 14px;
+}
+
+/* Show Categories below to Logo and search */
+.show-categories{
+    display: inline-flex;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Show last products */
+.show-last-products{
+    display: flex;
+    flex-direction: row;
+    /* padding: 12px; */
+    margin-left: 25px;
+    /* overflow: hidden; */
+    /* width: 400vw; */
+}
+/* .show-last-products .next {
+    position: relative;
+    top: 130px;
+    left: 100px;
+    
+}
+.show-last-products .prev{
+    position: relative;
+    top: 130px;
+    left: 100px;
+} */
+
+.show-last-products i:hover , .show-last-products i:focus {
+    color: #1e6091;
+}
+.show-last-products .icon-right{
+    position: relative;
+    top: 140px;
+    left: 90%;
+}
+.show-last-products .icon-left{
+    position: relative;
+    top: 140px;
+    left: 0%;
 }
 
 
