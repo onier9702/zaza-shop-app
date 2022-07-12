@@ -1,0 +1,116 @@
+
+.div-not-logged{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+}
+.div-not-logged .cuadro-info-not-logged{
+    border-radius: 20px;
+    background-color: #ade8f4;
+    padding: 8px;
+    height: 30vh;
+    width: 70vw;
+}
+.div-profile {
+    width: 100%;
+}
+.div-color {
+    background-color: #a2d2ff;
+    border-radius: 20px;
+    margin: 28px;
+    padding: 20px;
+}
+#edit-icon{
+    position: absolute;
+    right: 8vw;
+    top: 14%;
+}
+#edit-icon:hover , #edit-icon:focus{
+    cursor: pointer;
+    color: blue;
+}
+.div-img-user img{
+    border-radius: 100%;
+    width: 30vw;
+}
+.div-user-info{
+    /* border: 0.8px solid black; */
+    border-radius: 15px;
+    /* background-color: #bde0fe; */
+    padding: 20px;
+    margin-left: 20px;
+    width: fit-content;
+}
+
+.div-user-info ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+.div-user-info ul > *{
+    margin: 4px;
+}
+.div-user-info ul li {
+    display: flex;
+    flex-direction: row;
+}
+.div-user-info ul li .div-icon{
+    margin-right: 20px;
+    
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    width: 50px;
+}
+.div-user-info ul li .div-icon i{
+    margin: 0px;
+    padding: 0px;
+}
+.div-user-info ul li > *{
+    margin-right: 16px;
+}
+
+.div-user-info ul li .div-h5-p{
+    /* align-self: flex-end; */
+    background-color: white;
+    border: 0.6px solid black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 5px 0px 5px;
+}
+.div-user-info ul li .div-h5-p > *{
+    /* align-self: flex-start; */
+    margin-right: 8px;
+}
+.div-user-info ul li .div-h5-p p{
+    font-size: 18px;
+    /* padding-top: 1.5px; */
+}
+
+@media (max-width: 530px) {
+    .div-color {
+        margin: 14px;
+        padding: 14px;
+    }
+    .div-user-info{
+        padding: 15px 0px 0px 0px;
+        margin-left: 0px;
+    }
+    .div-user-info ul{
+        padding: 0px;
+        margin: 0px;
+    }
+    .div-user-info ul li .div-icon{
+        margin-right: 15px;
+        width: 30px;
+    }
+    .div-user-info ul li .div-h5-p h4, .div-user-info ul li .div-h5-p h5 {
+        font-size: 18px;
+    }
+    .div-user-info ul li .div-h5-p p{
+        font-size: 16px;
+    }
+}

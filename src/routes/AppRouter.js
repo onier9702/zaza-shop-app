@@ -15,6 +15,7 @@ import { MyProfile } from '../components/MyProfile';
 import { ChooseNav } from '../components/navigation/ChooseNav';
 import { RegisterScreen } from '../components/Register';
 import { SingleProduct } from '../components/Home/SingleProduct';
+import { EditUserAccount } from '../components/EditUserAccount';
 
 
 
@@ -37,6 +38,8 @@ export const AppRouter = () => {
         <Routes>
             <Route path='/' element={ <Home /> } />
             <Route path='/user' element={ <MyProfile /> } />
+            <Route path='/editUser' element={ <EditUserAccount /> } />
+
             <Route path='/login' element={ <LoginScreen /> } />
             <Route path='/register' element={ <RegisterScreen /> } />
             <Route path='/newProduct' element={ <CreateProduct /> } />

@@ -1,20 +1,22 @@
 
 
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-// import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 import { useForm } from '../hooks/useForm';
 
 import '../styles/auth/Login.css';
+import { startLogin } from '../actions/auth';
+import { removeError, setError } from '../actions/ui';
 // import { startLogin } from '../../actions/auth';
 
 export const LoginScreen = () => {
 
   const dispatch = useDispatch();
-  const {name} = useSelector( state => state.auth );
-  // const {loading} = useSelector( state => state.ui );
+  const navigate = useNavigate();
+  const {msg} = useSelector( state => state.ui );
 
   
   const [formValue, handleInputChange] = useForm( {
@@ -26,13 +28,24 @@ export const LoginScreen = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(startLogin(name ,email, password));
-  }
+   
+    dispatch(startLogin(formValue))
+      .then( resp => {
 
-  useEffect(() => {
-    // Swal.fire('Nota', 'Para Cuba usar VPN','info');
-  }, [])
-  
+        if (resp.ok){
+          dispatch(setError(resp.message));
+          setTimeout(() => {
+            dispatch(removeError());
+            navigate('/user');
+          }, 1500);
+
+        } else {
+          Swal.fire('Error', resp.message, 'error');
+        };
+      })
+      .catch( err => Swal.fire('Error', err , 'error'));
+  }
+ 
 
   return (
     <>
@@ -45,6 +58,10 @@ export const LoginScreen = () => {
                   onSubmit={handleSubmit}
             >
       
+                {
+                  (msg) && <div className="alert-danger" > { msg } </div>
+                }
+
                 <input  
                         type="text"
                         name="email"
@@ -53,8 +70,6 @@ export const LoginScreen = () => {
                         // className="auth__input"
                         value={email}
                         onChange={handleInputChange}
-
-      
                 />
     
                 <input  
@@ -64,7 +79,6 @@ export const LoginScreen = () => {
                         // className="auth__input"
                         value={password}
                         onChange={handleInputChange}
-
                 />
                 <button 
                         type="submit"

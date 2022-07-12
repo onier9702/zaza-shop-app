@@ -1,0 +1,40 @@
+
+.div-editUserAccount{
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+}
+.div-editUserAccount h2{
+    color: #0077b6;
+}
+.div-editUserAccount .alert-danger{
+    box-shadow: 2.5px #bb3e03;
+    color: red;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.div-editUserAccount form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 10px;
+    width: 60vw;
+}
+.div-editUserAccount form input{
+    border: 0.6px solid grey;
+    border-radius: 5px;
+    margin-bottom: 14px;
+}
+.div-editUserAccount form input:focus{
+    /* border: 0.3px solid grey; */
+    border: none;
+    box-shadow: 0px 0px 1.5px 0px #a2d2ff;
+}
+.div-editUserAccount form button{
+    background-color: #0096c7;
+    border: none;
+}
+.div-editUserAccount form button:hover , .div-editUserAccount form button:focus{
+    background-color: #023e8a;
+    color: white;
+}

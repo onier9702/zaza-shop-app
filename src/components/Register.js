@@ -1,80 +1,85 @@
 
 
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import validator from 'validator';
 // import Swal from 'sweetalert2';
 
 import { useForm } from '../hooks/useForm';
-// import { removeError, setError } from '../../actions/ui';
+import { removeError, setError } from '../actions/ui';
 import '../styles/auth/Login.css';
-// import { startRegister } from '../../actions/auth';
+import { startRegisterUser } from '../actions/auth';
 
 export const RegisterScreen = () => {
 
 
     const dispatch = useDispatch();
-    // const {msg} = useSelector(state => state.ui);
+    const {msg} = useSelector(state => state.ui);
+    const navigate = useNavigate(); 
 
     const [formValue, handleInputChange] = useForm( {
-
         name: '',
-        email: '',
+        email: '',   // onier@gmail.com
         password: '',
         password2: '',
-    } )
+        mobile: '',
+    } );
 
-    const {name, email, password, password2 } = formValue;
+    const { name, email, mobile, password, password2 } = formValue;
 
     const registered = (e) => {
       e.preventDefault();
-      console.log('click');
 
-      // if (formValid()){
-        //   console.log('Form correct');
-        // dispatch(startRegister( name ,email, password));
-        // }
+      if (formValid()){
+
+            const data = {
+                name,
+                email,
+                password,
+                mobile
+            }
+            dispatch(startRegisterUser(data));
+            dispatch(setError('Registro Exitoso'));
+            setTimeout(() => {
+                dispatch(removeError());
+                navigate('/login');
+            }, 1800);
+        }
     }
 
-    // const formValid = () => {
-    //     if(name.trim().length === 0 ){
-    //         dispatch(setError('El nombre esta vacio'));
-    //          return false;
-    //     } else if (!(validator.isEmail(email))){
-    //         dispatch(setError('El Correo esta vacio'));
-    //         return false;
-    //     } else if (password !== password2 || password.length < 6){
-    //         dispatch(setError('La contraseña debe coincidir y tener al menos 6 caracteres '));
-    //         return false;
-    //     }
-    //     dispatch(removeError());
-    //     return true;
-    // }
+    const formValid = () => {
+        if(name.trim().length === 0 ){
+            dispatch(setError('El nombre esta vacio'));
+             return false;
+        } else if (!(validator.isEmail(email))){
+            dispatch(setError('El Correo es incorrecto'));
+            return false;
+        } else if (password !== password2 || password.length < 6){
+            dispatch(setError('La contraseña debe coincidir y tener al menos 6 caracteres '));
+            return false;
+        } else if (mobile.trim().length === 0){
+            dispatch(setError('El Numero Telefono esta vacio'));
+            return false;
+        }
+        dispatch(removeError());
+        return true;
+    }
 
-    useEffect(() => {
-        // Swal.fire('Como funciona:',
-        //     '!!! Con solo un registro le basta para crear su liga de dominoes y con ese correo y contrasena todos los jugadores pueden acceder o logearse !!!',
-        //     'info'
-        // );
-      
-    }, [])
-    
-    
   return (
 
-    <>  
-       
+    <>
             <div className="container">
                 <h3 className="tittle">Registro</h3>
                 <form   className="content animate__animated animate__fadeIn animate__faster"
-                        onSubmit={registered} 
+                        onSubmit={registered}
+                        type="submit"
                         >
 
-                    {/* {   
-                        (msg) && <div className="auth__alert-error" > { msg } </div>   
-                    } */}
-                    <input  
+                    {
+                        (msg) && <div className="alert-danger" > { msg } </div>
+                    }
+                    <input
                         type="text"
                         name="name"
                         placeholder="Nombre"
@@ -83,7 +88,7 @@ export const RegisterScreen = () => {
                         value={name}
                         onChange={handleInputChange}
                     />
-                    <input  
+                    <input
                         type="text"
                         name="email"
                         placeholder="correo@gmail.com"
@@ -92,34 +97,41 @@ export const RegisterScreen = () => {
                         value={email}
                         onChange={handleInputChange}
                     />
-                
-                    <input  
+                    <input
                         type="password"
                         name="password"
-                        placeholder="contraseña"
+                        placeholder="Contraseña"
                         // className="auth__input"
                         value={password}
                         onChange={handleInputChange}
                     />
-                    <input  
+                    <input
                         type="password"
                         name="password2"
-                        placeholder="confirma"
+                        placeholder="Confirma"
                         // className="auth__input"
                         value={password2}
                         onChange={handleInputChange}
                     />
-                    <button 
-                        type="button"
-                        className="btn-login"
-                        onClick={registered}
-                        // disabled={true}
+                    <input
+                        type="tel"
+                        name="mobile"
+                        placeholder="celular"
+                        // className="auth__input"
+                        value={mobile}
+                        onChange={handleInputChange}
+                    />
+                    <button
+                    type="submit"
+                    className="btn-login"
+                    onClick={registered}
+                    // disabled={true}
                     >Registrarme</button>
-                
+
                     <div className="link">
                     <Link to="/login" className="link">Ir a Autenticarme</Link>
                     </div>
-                </form>             
+                </form>
             </div>
     </>
   )

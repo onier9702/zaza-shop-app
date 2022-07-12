@@ -20,6 +20,12 @@
     flex-direction: column;
     justify-content: center;
 }
+.container .content > *{
+    margin: 2px;
+}
+.container .content .alert-danger{
+    color: rgb(11, 245, 11);
+}
 
 .container .content input{
     border: 1px solid gray;
