@@ -21,11 +21,20 @@
     margin: 28px;
     padding: 20px;
 }
-#edit-icon{
+.div-color .header{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.div-color .isFullForm{
+    /* align-self: flex-end; */
+    margin-bottom: 10px;
+}
+/* #edit-icon{
     position: absolute;
     right: 8vw;
     top: 14%;
-}
+} */
 #edit-icon:hover , #edit-icon:focus{
     cursor: pointer;
     color: blue;

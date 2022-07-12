@@ -11,6 +11,7 @@ export const MyProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isLogged, setIsLogged] = useState(false);
+  const [fullForm, setFullForm] = useState(false);
 
   const { name,
     uid,
@@ -21,7 +22,7 @@ export const MyProfile = () => {
     tarjeta_USD,
     address
   } = useSelector( state => state.auth);
-
+  
   useEffect(() => {
     
     const idUser = localStorage.getItem('uid');
@@ -40,9 +41,24 @@ export const MyProfile = () => {
         .catch( err => console.log(err))
     } else {
       setIsLogged(true);
-    }
-
-  }, [uid ,setIsLogged, dispatch]);
+    };
+      
+      
+    }, [uid ,setIsLogged, dispatch]);
+    
+    useEffect(() => {
+      
+      let userVariables = [name, role, email, mobile, tarjeta_CUP, tarjeta_USD, address];
+      
+      for ( let variab of userVariables ) {
+        if ( !variab ){
+          setFullForm(true);
+          break;
+        }
+      };  
+    
+    }, [setFullForm, name, uid, role, email, mobile, img, tarjeta_CUP, tarjeta_USD, address]);
+  
 
 
   const handleEditUserAccount = () => {
@@ -64,15 +80,27 @@ export const MyProfile = () => {
   return (
     <div className="div-profile">
       <div className="div-color" >
-        <h1>Mi Perfil</h1>
-        <i onClick={handleEditUserAccount} className="bi bi-pencil-square" id="edit-icon"></i>
+        
+        <div className="header" >
+          <h1>Mi Perfil</h1>
+          <i onClick={handleEditUserAccount} className="bi bi-pencil-square" id="edit-icon"></i>
+        </div>
         <hr/>
+
+        <div className="isFullForm" >
+          {
+            (fullForm) 
+                ? <h6 style={{color: 'red'}}>Perfil Incompleto</h6>
+                : <h6 style={{color: 'blue'}}>Perfil Completado al 100%</h6>
+          }
+        </div>
 
         <div className="div-img-user" >
           {
             (img) && <img src={img} alt="img-user" />
           }
         </div>
+
 
         <div className="div-user-info">
 
@@ -131,6 +159,7 @@ export const MyProfile = () => {
 
               <div className="div-h5-p">
                 <h5>Tarjeta CUP</h5>
+                <p>{tarjeta_CUP}</p>
               </div>
             </li>
 
@@ -143,7 +172,7 @@ export const MyProfile = () => {
 
               <div className="div-h5-p">
                 <h5>Tarjeta USD</h5>
-
+                <p>{tarjeta_USD}</p>
               </div>
             </li>
 
@@ -156,10 +185,12 @@ export const MyProfile = () => {
 
               <div className="div-h5-p">
                 <h5>Direccion</h5>
+                <p>{address}</p>
               </div>
             </li>
 
           </ul>
+
         </div>
       </div>
     </div>

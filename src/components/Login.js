@@ -16,7 +16,7 @@ export const LoginScreen = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {msg} = useSelector( state => state.ui );
+  const {msg, loading} = useSelector( state => state.ui );
 
   
   const [formValue, handleInputChange] = useForm( {
@@ -84,7 +84,7 @@ export const LoginScreen = () => {
                         type="submit"
                         className="btn-login"
                         onClick={handleSubmit}
-                        // disabled= {loading}
+                        disabled= {loading}
                 >Entrar</button>
     
                 <div className="link">

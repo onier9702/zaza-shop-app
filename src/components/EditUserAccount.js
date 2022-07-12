@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeError, setError } from '../actions/ui';
 import { useForm } from '../hooks/useForm';
 import { startUpdateUserProfile } from '../actions/auth';
+import { useNavigate } from 'react-router-dom';
 
 
 export const EditUserAccount = () => {
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {msg} = useSelector(state => state.ui);
+    const {msg, loading} = useSelector(state => state.ui);
     const {uid} = useSelector(state => state.auth);
 
     const [formValue, handleInputChange] = useForm( {
@@ -45,7 +47,6 @@ export const EditUserAccount = () => {
                 
             };
             if (tarjeta){
-                console.log(tarjeta.trim().length);
                 if (tarjeta.trim().length < 19){
                     dispatch(setError('La tarjeta tiene un formato incorrecto, intente con este formato xxxx-xxxx-xxxx-xxxx'));
                     return false;
@@ -56,7 +57,6 @@ export const EditUserAccount = () => {
         }
 
         if (formValid()){
-            console.log('Form correct');
             let editedData = {};
             if (mobile) {
                 editedData.mobile = mobile;
@@ -76,19 +76,34 @@ export const EditUserAccount = () => {
             if (address) {
                 editedData.address = address;
             };
-            
         
             // console.log(editedData);
-            dispatch( startUpdateUserProfile(uid, editedData) );
-        }
+            dispatch( startUpdateUserProfile(uid, editedData) )
+                .then( resp => {
 
-        // dispatch(removeError());
+                    if ( resp.ok ){
+                        dispatch( setError('Actualizado con exito'));
+                        setTimeout(() => {
+                            dispatch(removeError());
+                            navigate('/user');
+                        }, 1200);
+                    }
 
-    }
+                })
+                .catch( err => console.log(err));
+
+        } else {
+            setTimeout(() => {
+                dispatch(removeError());
+            }, 2300);
+
+        };
+
+    };
 
   return (
     <div className="div-editUserAccount">
-        <h2>Completar Perfil</h2>
+        <h2>Actualizar/Editar Perfil</h2>
         <form  className="content animate__animated animate__fadeIn animate__faster"
                 onSubmit={edit}
                 type="submit"
@@ -150,7 +165,7 @@ export const EditUserAccount = () => {
                     type="submit"
                     className="btn-login"
                     onClick={edit}
-                    // disabled={true}
+                    disabled={loading}
                 >Enviar</button>
         </form>
     </div>
