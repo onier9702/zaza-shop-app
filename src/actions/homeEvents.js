@@ -75,8 +75,23 @@ const setActiveProduct = ( product = {} ) => ({
     payload: product
 })
 
+const findActiveCategory = ( id= '', categories = [] ) => {
+
+    return (dispatch) => {
+
+        let newArr = [];
+        categories.forEach( c => newArr.push(c) );
+
+        const activeCate = newArr.find( cate => cate.id === id );
+        console.log(activeCate);
+        // dispatch( setActiveProduct(activeProduct) );
+    }
+
+}
+
 export {
     startLoadAllCategories,
     startLoadAllProducts,
-    findActiveProduct
+    findActiveProduct,
+    findActiveCategory
 }

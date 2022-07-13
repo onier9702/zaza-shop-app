@@ -41,8 +41,8 @@ export const Home = () => {
 
       <div className="show-categories" >
         {
-          categories.map( (cate, index) => (
-            <AllCateg key={index} category={cate} />
+          categories.map( cate => (
+            <AllCateg key={cate.id} category={cate} />
           ) )
         }
       </div>
