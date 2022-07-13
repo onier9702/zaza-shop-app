@@ -89,9 +89,9 @@ export const MyProfile = () => {
 
         <div className="isFullForm" >
           {
-            (fullForm) 
-                ? <h6 style={{color: 'red'}}>Perfil Incompleto</h6>
-                : <h6 style={{color: 'blue'}}>Perfil Completado al 100%</h6>
+            (fullForm) && <h6 style={{color: 'red'}}>Perfil Incompleto</h6>
+                // ? 
+                // : <h6 style={{color: 'blue'}}>Perfil Completado al 100%</h6>
           }
         </div>
 
@@ -158,7 +158,7 @@ export const MyProfile = () => {
               </div>
 
               <div className="div-h5-p">
-                <h5>Tarjeta CUP</h5>
+                <h5>Tarjeta_CUP:</h5>
                 <p>{tarjeta_CUP}</p>
               </div>
             </li>
@@ -171,7 +171,7 @@ export const MyProfile = () => {
               </div>
 
               <div className="div-h5-p">
-                <h5>Tarjeta USD</h5>
+                <h5>Tarjeta_USD:</h5>
                 <p>{tarjeta_USD}</p>
               </div>
             </li>
@@ -184,7 +184,7 @@ export const MyProfile = () => {
               </div>
 
               <div className="div-h5-p">
-                <h5>Direccion</h5>
+                <h5>Direccion:</h5>
                 <p>{address}</p>
               </div>
             </li>

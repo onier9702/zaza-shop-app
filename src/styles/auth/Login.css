@@ -36,13 +36,13 @@
 }
 
 .container .content input:hover , .container .content input:focus{
-    border: none;
+    /* border: none; */
     /* border-bottom: 0.4px solid grey; */
     box-shadow: 1px 1px 6px 1px rgb(37, 142, 228) ;
 }
 
 .container .content button{
-    background-color: #8ecae6;
+    background-color: #219ebc;
     border: none;
     padding: 5px;
     margin-bottom: 10px;
@@ -50,7 +50,7 @@
 }
 
 .container .content button:hover{
-    background-color: #219ebc;
+    background-color: #8ecae6;
 }
 
 .container .content .link link{

@@ -61,6 +61,8 @@
     margin: 4px;
 }
 .div-user-info ul li {
+    background-color: white;
+    border-radius: 12px;
     display: flex;
     flex-direction: row;
 }
@@ -82,16 +84,16 @@
 
 .div-user-info ul li .div-h5-p{
     /* align-self: flex-end; */
-    background-color: white;
-    border: 0.6px solid black;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: row;
+    /* background-color: white;
+    border: 0.6px solid black; */
+    display:flex;
+    padding-top: 10px;
+    /*flex-direction: row;
     justify-content: center;
-    padding: 10px 5px 0px 5px;
+    align-self: flex-start; */
+    /* padding: 10px 5px 0px 5px; */
 }
 .div-user-info ul li .div-h5-p > *{
-    /* align-self: flex-start; */
     margin-right: 8px;
 }
 .div-user-info ul li .div-h5-p p{

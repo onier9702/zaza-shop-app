@@ -21,7 +21,7 @@ export const ChooseNav = () => {
     <div className="navigation-div">
     
         {
-            (active) ?  <i onClick={handleClick} class="bi bi-x-circle" ></i>  :  <i onClick={handleClick} className="bi bi-list" ></i>  
+            (active) ?  <i onClick={handleClick} className="bi bi-x-circle" ></i>  :  <i onClick={handleClick} className="bi bi-list" ></i>  
         }
         {
             (active) && <MobileNav isMob={true} closeMenu={closeMenu}/>
