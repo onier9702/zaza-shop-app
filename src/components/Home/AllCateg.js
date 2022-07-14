@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { findActiveCategory } from '../../actions/homeEvents';
@@ -13,12 +13,22 @@ export const AllCateg = ({category}) => {
   const dispatch = useDispatch();
   const {categories} = useSelector( state => state.category);
 
+  let token;
+  useEffect(() => {
+    token = localStorage.getItem('token');
+  }, [token]);
+  
+
   const handleClickCat = ({target}) => {
 
     const idCate = target.id;
     dispatch( findActiveCategory(idCate, categories) );
-    navigate('/pub/singleCategory') || navigate('/pri/singleCategory');
-  }
+    if ( !token ){
+      navigate('/pub/singleCategory');
+    } else {
+      navigate('/pri/singleCategory');
+    };
+  };
 
   return (
     <div className="cuadro-categ">

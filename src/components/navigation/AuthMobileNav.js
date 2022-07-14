@@ -2,7 +2,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { authLogout } from '../../actions/auth';
+import { startLogout } from '../../actions/auth';
 
 import '../../styles/home/Navbar.css';
 
@@ -13,8 +13,8 @@ export const AuthMobileNav = ({isMob,closeMenu}) => {
     const handleLogout = (e) => {
         e.preventDefault();
         localStorage.clear();
-        dispatch( authLogout() );
-        navigate('/');
+        dispatch( startLogout() );
+        navigate('/pub/login');
     };
 
 

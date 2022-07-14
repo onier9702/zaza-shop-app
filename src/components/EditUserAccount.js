@@ -29,7 +29,7 @@ export const EditUserAccount = () => {
     
     const edit = (e) => {
         e.preventDefault();
-
+        console.log('inside /pri/editUser');
         const formValid = () => {
             
             if (password){
@@ -52,7 +52,7 @@ export const EditUserAccount = () => {
                     return false;
                 };
             };
-            dispatch(removeError());
+            // dispatch(removeError());
             return true;
         }
 
@@ -85,7 +85,7 @@ export const EditUserAccount = () => {
                         dispatch( setError('Actualizado con exito'));
                         setTimeout(() => {
                             dispatch(removeError());
-                            navigate('/priv/user');
+                            navigate('/pri/user');
                         }, 1200);
                     }
 
@@ -98,8 +98,9 @@ export const EditUserAccount = () => {
             }, 2300);
 
         };
-
-        dispatch(removeError());
+        setTimeout(() => {
+            dispatch(removeError());
+        }, 2000);
 
     };
 

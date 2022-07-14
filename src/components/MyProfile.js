@@ -58,6 +58,7 @@ export const MyProfile = () => {
   const handleEditUserAccount = () => {
 
     navigate('/pri/editUser');
+    console.log('I clicked on Edit Icon');
 
   };
 

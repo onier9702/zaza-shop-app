@@ -19,6 +19,17 @@
 .single-category .info-category > *{
     margin: 6px;
 }
-.single-category .info-category img{
+/* .single-category .info-category img{
     width: 25vw;
+} */
+
+@media (max-width: 430px) {
+
+    .single-category .info-category{
+        padding: 4px;
+    }
+    /* .single-category .info-category img{
+        width: 50vw;
+    } */
+
 }

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { findActiveProduct } from '../../actions/homeEvents';
@@ -12,18 +12,29 @@ export const ProdsBelongCate = ({product}) => {
     const navigate = useNavigate();
     const dispatch   = useDispatch();
     const { products } = useSelector( state => state.product);
+
+    let token;
+
+    useEffect(() => {
+      token = localStorage.getItem('token');
+    }, [token])
+    
   
     const handleBuyProduct = ({target}) => {
 
         const idProd = target.id;
         dispatch( findActiveProduct(idProd, products) );
-        navigate('/pub/buyProduct') || navigate('/pri/buyProduct');
+        if ( token ){
+            navigate('/pri/buyProduct');
+        } else {
+            navigate('/pub/buyProduct');
+        };  
 
     };
   
     return (
   
-        <div style={{marginBottom: 50}} className="cuadro-product">
+        <div className="cuadro-product">
 
           <div className="img">
               {

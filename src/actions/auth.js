@@ -8,6 +8,7 @@ const startChecking = () => {
 
     return async(dispatch) => {
 
+        console.log('I am starting checking');
         const resp = await fetchWithToken('api/users/renew');
         const body = await resp.json();
 
@@ -168,6 +169,17 @@ const startUpdateUserProfile = (id, form) => {
     };
 };
 
+const startLogout = () => {
+
+    return async(dispatch) => {
+        
+        localStorage.clear();
+        dispatch( authLogout());
+
+    }
+    
+}
+
 const authLogout = () => ({
     type: types.authLogout
 });
@@ -178,6 +190,6 @@ export {
     startUpdateUserProfile,
     getUserProfileData,
     setLoginUser,
-    authLogout,
+    startLogout,
     startChecking
 }
