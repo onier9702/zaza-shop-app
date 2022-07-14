@@ -36,7 +36,7 @@ export const LoginScreen = () => {
           dispatch(setError(resp.message));
           setTimeout(() => {
             dispatch(removeError());
-            navigate('/user');
+            navigate('/pri/user');
           }, 1500);
 
         } else {
@@ -88,7 +88,7 @@ export const LoginScreen = () => {
                 >Entrar</button>
     
                 <div className="link">
-                  <Link to="/register" className="link">Registrarme</Link>
+                  <Link to="/pub/register" className="link">Registrarme</Link>
                 </div>
             </form>
 

@@ -10,7 +10,7 @@ export const SingleProduct = () => {
     const {activeProduct} = useSelector(state => state.product);
     const { name, _id, user, category, precio, description, amount, img } = activeProduct;
 
-    const { name: nameUser, _id: idUser } = user;  // User info
+    // const { name: nameUser, _id: idUser } = user;  // User info
 
     const { name: nameCategory, _id: idCategory } = category;  // Category info
 
@@ -18,7 +18,6 @@ export const SingleProduct = () => {
 
     const handleReturn = () => {
         navigate(-1);
-        console.log('It was pressed');
     };
 
     const handleBuyProduct = (e) => {

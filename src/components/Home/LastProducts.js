@@ -18,7 +18,7 @@ export const LastProducts = ({product}) => {
     const currentId = e.target.id;
     
     dispatch( findActiveProduct(currentId, products) );  // activate on Redux the clicked Product
-    navigate('/singleProduct');
+    navigate('/pub/singleProduct') || navigate('/pri/singleProduct');
   };
 
   return (

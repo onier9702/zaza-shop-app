@@ -85,7 +85,7 @@ export const EditUserAccount = () => {
                         dispatch( setError('Actualizado con exito'));
                         setTimeout(() => {
                             dispatch(removeError());
-                            navigate('/user');
+                            navigate('/priv/user');
                         }, 1200);
                     }
 

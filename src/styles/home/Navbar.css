@@ -59,12 +59,14 @@ i:hover{
     font-size: 1.2rem;
     
 }
-/* .logout{
-    border: none;
+.logout{
     color: black;
+    cursor: pointer;
+    padding: 0px;
+    border: none;
     background-color: transparent;
-    margin-left: 50px;
-} */
+    margin-left: 60px;
+}
 
 
 

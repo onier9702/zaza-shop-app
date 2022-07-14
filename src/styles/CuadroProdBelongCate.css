@@ -1,0 +1,35 @@
+
+/* .div-prod {
+    display: flex;
+    width: 80vw;
+} */
+.cuadro-product{
+    margin-bottom: 50px;
+    background-color: #bde0fe;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    
+}
+.cuadro-product .img{
+    display: flex;
+    /* height: 400px; */
+    width: fit-content;
+}
+.cuadro-product .img img {
+    border-radius: 20px;
+    padding: 7px;
+    margin-right: 10px;
+    width: 25vw;
+}
+.cuadro-product .info-prod{
+    display: flex;
+    flex-direction: column;
+}
+.cuadro-product .info-prod >*{
+    margin: 10px;
+}
+.cuadro-product .info-prod .color-precio{
+    color: red;
+}

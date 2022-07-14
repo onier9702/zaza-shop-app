@@ -65,7 +65,7 @@ const findActiveProduct = (id = '', products = []) => {
         products.forEach( p => newArr.push(p) );
 
         const activeProduct = newArr.find( prod => prod._id === id );
-        console.log(activeProduct);
+        // console.log(activeProduct);
         dispatch( setActiveProduct(activeProduct) );
     }
 };
@@ -73,7 +73,7 @@ const findActiveProduct = (id = '', products = []) => {
 const setActiveProduct = ( product = {} ) => ({
     type: types.productActive,
     payload: product
-})
+});
 
 const findActiveCategory = ( id= '', categories = [] ) => {
 
@@ -83,11 +83,16 @@ const findActiveCategory = ( id= '', categories = [] ) => {
         categories.forEach( c => newArr.push(c) );
 
         const activeCate = newArr.find( cate => cate.id === id );
-        console.log(activeCate);
-        // dispatch( setActiveProduct(activeProduct) );
+        // console.log(activeCate);
+        dispatch( setActiveCategory(activeCate) );
     }
 
-}
+};
+
+const setActiveCategory = ( cate = {} ) => ({
+    type: types.categoryActive,
+    payload: cate
+})
 
 export {
     startLoadAllCategories,

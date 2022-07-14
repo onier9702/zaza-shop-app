@@ -4,6 +4,30 @@ import { fetchNotToken, fetchWithToken } from "../helpers/fetch";
 import { types } from "../types/types";
 import { finishLoadingPage, startLoadingPage } from "./ui";
 
+const startChecking = () => {   
+
+    return async(dispatch) => {
+
+        const resp = await fetchWithToken('api/users/renew');
+        const body = await resp.json();
+
+        console.log(body);
+
+        if (body.token) {
+            const { state, ...dataUser } = body.user;
+            dispatch(setLoginUser(dataUser));
+            localStorage.setItem('token', body.token);
+            localStorage.setItem('uid', body.user.uid);
+
+        } else {
+            // Swal.fire('Error', body.msg, 'error');
+            dispatch(checkingFinish());
+        }
+
+    };
+}
+
+const checkingFinish = () => ({ type: types.authCheckingFinish });
 
 const startRegisterUser = ( form ) => {
 
@@ -36,12 +60,6 @@ const startLogin = ( form ) => {
         try {
 
             dispatch( startLoadingPage() ); 
-
-            const uidLocalStorage = localStorage.getItem('uid');
-            if (uidLocalStorage){
-                dispatch( logout() );
-                localStorage.clear();
-            }
             
             const resp = await fetchNotToken('api/users/login', form, 'POST');
             const data = await resp.json();
@@ -54,7 +72,7 @@ const startLogin = ( form ) => {
                     message: 'Ha ocurrido un error, introduzca correctamente sus datos'
                 };
             } else {
-                console.log(data.user);
+                // console.log(data.user);
                 const { state, ...dataUser } = data.user;
                 dispatch(setLoginUser(dataUser));
                 localStorage.setItem('token', data.token);
@@ -76,7 +94,6 @@ const startLogin = ( form ) => {
     };
 };
 
-const logout = () => ({ type: types.authLogout});
 
 const setLoginUser = ( data ) => ({
     type: types.authLogin,
@@ -95,9 +112,10 @@ const getUserProfileData = (id) => {
 
             if ( data.user ) {
                 const { state, ...dataUser } = data.user;
-                dispatch(setLoginUser(dataUser)); // this function put data user, not only in Login
+                // dispatch(setLoginUser(dataUser)); // this function put data user, not only in Login
                 return {
                     ok: true,
+                    user: dataUser
                 };
             } else {
                 return {
@@ -148,12 +166,18 @@ const startUpdateUserProfile = (id, form) => {
         }
 
     };
-
 };
+
+const authLogout = () => ({
+    type: types.authLogout
+});
 
 export {
     startRegisterUser,
     startLogin,
     startUpdateUserProfile,
-    getUserProfileData
+    getUserProfileData,
+    setLoginUser,
+    authLogout,
+    startChecking
 }

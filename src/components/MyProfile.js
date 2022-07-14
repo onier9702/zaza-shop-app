@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getUserProfileData } from '../actions/auth';
+import { getUserProfileData, setLoginUser } from '../actions/auth';
 
 import '../styles/auth/UserProfile.css';
 
@@ -12,17 +12,9 @@ export const MyProfile = () => {
   const dispatch = useDispatch();
   const [isLogged, setIsLogged] = useState(false);
   const [fullForm, setFullForm] = useState(false);
-
-  const { name,
-    uid,
-    role, email,
-    mobile,
-    img,
-    tarjeta_CUP,
-    tarjeta_USD,
-    address
-  } = useSelector( state => state.auth);
   
+  const {name, role, email, mobile, tarjeta_CUP, tarjeta_USD, address, uid, img} = useSelector( state => state.auth);
+
   useEffect(() => {
     
     const idUser = localStorage.getItem('uid');
@@ -33,6 +25,8 @@ export const MyProfile = () => {
   
           if (resp.ok) {
             setIsLogged(true);
+            dispatch( setLoginUser(resp.user) );
+   
           } else {
             setIsLogged(false);
           }
@@ -63,7 +57,7 @@ export const MyProfile = () => {
 
   const handleEditUserAccount = () => {
 
-    navigate('/editUser');
+    navigate('/pri/editUser');
 
   };
 

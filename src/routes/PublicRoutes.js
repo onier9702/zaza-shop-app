@@ -1,22 +1,14 @@
 
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { Home } from '../components/public/Home';
-import { Login } from '../components/public/Login';
-import { Register } from '../components/public/Register';
-
-export const PublicRoutes = () => {
+import { Navigate } from 'react-router-dom';
 
 
-  return (
-    <div>
-        <Routes >
-            <Route path='/' element={ <Home /> } />
-            <Route path='/register' element={ <Register /> } />
-            <Route path='/login' element={ <Login /> } />
+export const PublicRoutes = ({children, authenticated}) => {
 
 
-        </Routes>
-    </div>
-  )
+  return ( !authenticated )
+            ? children
+            : (<Navigate to="/pri" />) 
+
 }
+

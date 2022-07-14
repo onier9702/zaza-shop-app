@@ -1,0 +1,24 @@
+
+
+.single-category{
+    /* padding: 6px; */
+}
+.single-category i{
+    font-size: 2.5rem;
+}
+.single-category i:hover , .single-category i:focus {
+    color: blue;
+    cursor: pointer;
+}
+
+.single-category .info-category{
+    /* display: flex; */
+    /* flex-direction: column; */
+    padding: 8vw;
+}
+.single-category .info-category > *{
+    margin: 6px;
+}
+.single-category .info-category img{
+    width: 25vw;
+}
