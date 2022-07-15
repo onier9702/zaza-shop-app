@@ -20,7 +20,7 @@ export const CarouselProducts = () => {
                 <div className="slide first"></div>
                 {
                     products.map( ( prod, index ) => (
-                    <LastProducts key={prod._id} product={prod} index={index} />
+                    <LastProducts key={prod.id} product={prod} index={index} />
                     ) )
                 }
                 </div> 

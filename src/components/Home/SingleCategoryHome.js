@@ -35,7 +35,7 @@ export const SingleCategoryHome = () => {
           <h3 style={{color: '#219ebc', marginBottom: 18}} >{name}</h3>
           {
             prodBelongCate.map( prod => (
-              <ProdsBelongCate key={prod._id} product={prod} />
+              <ProdsBelongCate key={prod.id} product={prod} />
             ))
           }
 

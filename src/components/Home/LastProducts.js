@@ -22,7 +22,7 @@ export const LastProducts = ({product}) => {
 
   const handleSeeProductHome = (e) => {
     const currentId = e.target.id;
-    
+    // console.log(currentId);
     dispatch( findActiveProduct(currentId, products) );  // activate on Redux the clicked Product
     if ( token ){
       navigate('/pri/singleProduct');
@@ -37,7 +37,7 @@ export const LastProducts = ({product}) => {
     <>
         <div className="slide">
           <div onClick={handleSeeProductHome} className="cuadro-product">
-            <img  src={product.img} alt="img" id={product._id} />
+            <img  src={product.img} alt="img" id={product.id} />
             <span className="color-precio" >{`Precio ${product.precio}`}</span>
 
           </div>

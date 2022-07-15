@@ -64,7 +64,7 @@ const findActiveProduct = (id = '', products = []) => {
         let newArr = [];
         products.forEach( p => newArr.push(p) );
 
-        const activeProduct = newArr.find( prod => prod._id === id );
+        const activeProduct = newArr.find( prod => prod.id === id );
         // console.log(activeProduct);
         dispatch( setActiveProduct(activeProduct) );
     }

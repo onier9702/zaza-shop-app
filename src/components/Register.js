@@ -43,8 +43,12 @@ export const RegisterScreen = () => {
             dispatch(setError('Registro Exitoso'));
             setTimeout(() => {
                 dispatch(removeError());
-                navigate('/login');
-            }, 1800);
+                navigate('/pub/login');
+            }, 1500);
+        } else {
+            setTimeout(() => {
+                dispatch( removeError());
+            }, 1900);
         }
     }
 
@@ -58,8 +62,8 @@ export const RegisterScreen = () => {
         } else if (password !== password2 || password.length < 6){
             dispatch(setError('La contraseña debe coincidir y tener al menos 6 caracteres '));
             return false;
-        } else if (mobile.trim().length === 0){
-            dispatch(setError('El Numero Telefono esta vacio'));
+        } else if (mobile.trim().length  < 8 || mobile.trim().length  > 13){
+            dispatch(setError('El Numero Telefono es incorrecto'));
             return false;
         }
         dispatch(removeError());

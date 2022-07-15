@@ -7,7 +7,7 @@ export const authProprietor = ( state = {}, action ) => {
     switch (action.type) {
         case types.proprietorUser:
             return {
-                ...state,
+                // ...state,
                 ...action.payload
             }
     

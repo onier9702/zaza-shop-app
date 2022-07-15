@@ -8,13 +8,14 @@ const startChecking = () => {
 
     return async(dispatch) => {
 
-        console.log('I am starting checking');
+        // console.log('I am starting checking');
         const resp = await fetchWithToken('api/users/renew');
         const body = await resp.json();
 
-        console.log(body);
+        // console.log(body);
 
         if (body.token) {
+            // console.log('Token Checking:' + body.token);
             const { state, ...dataUser } = body.user;
             dispatch(setLoginUser(dataUser));
             localStorage.setItem('token', body.token);
@@ -73,7 +74,7 @@ const startLogin = ( form ) => {
                     message: 'Ha ocurrido un error, introduzca correctamente sus datos'
                 };
             } else {
-                // console.log(data.user);
+                // console.log('Token Login:' + data.token);
                 const { state, ...dataUser } = data.user;
                 dispatch(setLoginUser(dataUser));
                 localStorage.setItem('token', data.token);
@@ -108,10 +109,12 @@ const getUserProfileData = (id) => {
 
         try {
 
-            const resp = await fetchWithToken(`api/users/${id}`);
+            const resp = await fetchNotToken(`api/users/${id}`);
             const data = await resp.json();
 
             if ( data.user ) {
+                // console.log('Inside Get User Profile Data');
+                // console.log(data);
                 const { state, ...dataUser } = data.user;
                 // dispatch(setLoginUser(dataUser)); // this function put data user, not only in Login
                 return {

@@ -77,7 +77,7 @@ export const EditUserAccount = () => {
                 editedData.address = address;
             };
         
-            // console.log(editedData);
+            console.log(editedData);
             dispatch( startUpdateUserProfile(uid, editedData) )
                 .then( resp => {
 
@@ -87,10 +87,15 @@ export const EditUserAccount = () => {
                             dispatch(removeError());
                             navigate('/pri/user');
                         }, 1200);
+                    } else {
+                        dispatch( setError('Un error ha ocurrido, reintente'));
+                        setTimeout(() => {
+                            dispatch( removeError());
+                        }, 1300);
                     }
 
                 })
-                .catch( err => console.log(err));
+                .catch( err => console.log(err))
 
         } else {
             setTimeout(() => {
@@ -98,9 +103,9 @@ export const EditUserAccount = () => {
             }, 2300);
 
         };
-        setTimeout(() => {
-            dispatch(removeError());
-        }, 2000);
+        // setTimeout(() => {
+        //     dispatch(removeError());
+        // }, 2000);
 
     };
 

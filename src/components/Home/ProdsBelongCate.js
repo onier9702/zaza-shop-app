@@ -38,7 +38,7 @@ export const ProdsBelongCate = ({product}) => {
 
           <div className="img">
               {
-                  (product.img) && <img  src={product.img} alt="img" id={product._id} />
+                  (product.img) && <img  src={product.img} alt="img" id={product.id} />
               }
           </div>
           <div className="info-prod">
@@ -47,7 +47,7 @@ export const ProdsBelongCate = ({product}) => {
             <span className="description" >{product.description}</span>
             <span className="amount" >{`Quedan: ${product.amount}`}</span>
 
-            <button onClick={handleBuyProduct} type="button" id={product._id} className="btn btn-info">Ir a comprar</button>
+            <button onClick={handleBuyProduct} type="button" id={product.id} className="btn btn-info">Ir a comprar</button>
           </div>
 
         </div>
