@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 
 import '../../styles/home/BuyProduct.css';
-import { getUserProfileData } from '../../actions/auth';
-import { ownerUserProduct } from '../../actions/owner';
+
 import { useNavigate } from 'react-router-dom';
 
 export const BuyProduct = () => {
@@ -13,40 +12,20 @@ export const BuyProduct = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { activeProduct } = useSelector( state => state.product);
-    const { name, address, tarjeta_CUP, tarjeta_USD, img, mobile } = useSelector( state => state.owner);
+    const { activeSeller } = useSelector( state => state.owner);
 
+    const { name, address, tarjeta_CUP, tarjeta_USD, img, mobile } = activeSeller;
     let token = localStorage.getItem('token');
 
-    useEffect(() => {
-      
-        if (activeProduct.name){
-
-            dispatch( getUserProfileData( activeProduct.user._id ) )
-                .then( resp => {  
-        
-                    if (resp.ok){
-                        // console.log('Inside buy Product');
-                        // console.log(resp.user);
-                        dispatch( ownerUserProduct(resp.user) );
-                    } else {
-                        console.log(resp);
-                        Swal.fire('Info', 'Ha ocurrido un error, reintente de nuevo o contacte Administrador +53 54474824', 'warning');
-                    }
-                })
-                .catch( err => console.log(err))
-
+    if ( !activeProduct.name ) {
+        console.log('Not active Product');
+        if (token) {
+            navigate('/pri/');
         } else {
-            console.log('Not active Product');
-            if (token) {
-                navigate('/pri/');
-            } else {
-                navigate('/pub/');
-            };
-        }
+            navigate('/pub/');
+        };
+    };
       
-    }, [dispatch, name, activeProduct]);
-    
-
 
   return (
     <div className="div-buyProduct">
@@ -55,7 +34,7 @@ export const BuyProduct = () => {
         <div className="info-propriety">
 
             {
-                (img) && <li><img id="img" src={img} alt="owner-img" /></li>
+                (img) && <img id="img" src={img} alt="owner-img" />
             }
 
             <li>

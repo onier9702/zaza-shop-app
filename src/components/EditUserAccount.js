@@ -40,7 +40,7 @@ export const EditUserAccount = () => {
             };
 
             if (mobile){
-                if (mobile.trim().length < 8){
+                if (mobile.trim().length < 8 || mobile.trim().length > 13){
                     dispatch(setError('El Numero Telefono es incorrecto'));
                     return false;
                 };

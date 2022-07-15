@@ -11,7 +11,8 @@ export const types = {
     uiStartLoading: '[UI] Start loading',
     uiFinishLoading: '[UI] Finish loading',
 
-    proprietorUser: '[proprietor] Owner Product',
+    ownerActive: '[proprietor] Seller User',
+    ownerLoadAll: '[proprietor] All Sellers',
 
     categoryLoadAll: '[category] Load All from DB',
     categoryActive: '[category] Active Category',

@@ -16,6 +16,7 @@ import { PrivateRoutes } from './PrivateRoutes';
 import { DashboardRouter } from './DashboardRouter';
 import { startChecking } from '../actions/auth';
 import { AuthNavbar } from '../components/navigation/AuthNavbar';
+import { startLoadAllSellers } from '../actions/owner';
 
 
 
@@ -33,6 +34,7 @@ export const AppRouter = () => {
     dispatch( startChecking() );
     dispatch( startLoadAllCategories() );
     dispatch( startLoadAllProducts() );
+    dispatch( startLoadAllSellers() );
 
   }, [dispatch, uid]);
 

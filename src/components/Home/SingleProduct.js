@@ -2,19 +2,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { ownerUserProduct } from '../../actions/owner';
+import { findActiveSeller, ownerUserProduct } from '../../actions/owner';
 
 import '../../styles/home/SingleProduct.css';
 
 export const SingleProduct = () => {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const {activeProduct} = useSelector(state => state.product);
+    const {sellers} = useSelector(state => state.owner);
+
     const { name, id, user, category, precio, description, amount, img } = activeProduct;
 
-    // const { name: nameUser, _id: idUser } = user;  // User info
-
-    // const { name: nameCategory, _id: idCategory } = category;  // Category info
 
     const navigate = useNavigate();
 
@@ -31,6 +30,7 @@ export const SingleProduct = () => {
     const handleBuyProduct = () => {
         // e.preventDefault();        
         console.log('Buy a Iphone inside carousel products');
+        dispatch( findActiveSeller(user._id, sellers) );
         if (token){
             navigate('/pri/buyProduct');
         } else {

@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { findActiveProduct } from '../../actions/homeEvents';
+import { findActiveSeller } from '../../actions/owner';
 
 import '../../styles/CuadroProdBelongCate.css';
 
@@ -11,7 +12,9 @@ export const ProdsBelongCate = ({product}) => {
 
     const navigate = useNavigate();
     const dispatch   = useDispatch();
-    const { products } = useSelector( state => state.product);
+    const { products, activeProduct } = useSelector( state => state.product);
+    const { sellers } = useSelector( state => state.owner);
+
 
     let token;
 
@@ -24,10 +27,11 @@ export const ProdsBelongCate = ({product}) => {
 
         const idProd = target.id;
         dispatch( findActiveProduct(idProd, products) );
+        dispatch( findActiveSeller(activeProduct.user._id, sellers) );
         if ( token ){
-            navigate('/pri/buyProduct');
+            navigate('/pri/singleProduct');
         } else {
-            navigate('/pub/buyProduct');
+            navigate('/pub/singleProduct');
         };  
 
     };
@@ -47,7 +51,7 @@ export const ProdsBelongCate = ({product}) => {
             <span className="description" >{product.description}</span>
             <span className="amount" >{`Quedan: ${product.amount}`}</span>
 
-            <button onClick={handleBuyProduct} type="button" id={product.id} className="btn btn-info">Ir a comprar</button>
+            <button onClick={handleBuyProduct} type="button" id={product.id} className="btn btn-info">{`Ver ${product.name}`}</button>
           </div>
 
         </div>
