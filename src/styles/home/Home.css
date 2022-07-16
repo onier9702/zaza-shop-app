@@ -44,21 +44,23 @@
 .show-categories{
     align-items: center;
     display: flex;
-    height: fit-content;
+    height: 60px;
     justify-content: center;
     padding: 0px;
-    margin: 15px 0px 0px 15px;
-    overflow-x: hidden;
+    margin: 0px 0px 0px 15px;
+    overflow: hidden;
+    /* overflow-y: hidden; */
 
 }
 .show-categories .slider{
-    height: 60px;
+    height: 52px;
     overflow-x: auto; 
-    width: fit-content;
+    /* width: fit-content; */
 }
 .show-categories .slider .slides{
     display: flex;
     flex-direction: row;
+    height: fit-content;
 }
 .slider::-webkit-scrollbar {
     width: 0px;

@@ -29,17 +29,18 @@
 
 .div-crearCat form button{
     border: none;
-    background-color: #42a5f5;
-}
-.div-crearCat form button:hover , .div-crearCat form button:focus {
     background-color: #1565c0;
     color: white;
+}
+.div-crearCat form button:hover , .div-crearCat form button:focus {
+    background-color: #42a5f5;
+    color: black;
 }
 
 /* .div-crearCat .allCategories > *{
     margin: 7px;
 } */
-.div-crearCat .allCategories {
+.div-crearCat .allCategories { 
     margin-bottom: 18px;
     
 }

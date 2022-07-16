@@ -1,2 +1,48 @@
 
 /* Create Product */
+
+.div-createProduct{
+    padding: 18px;
+}
+
+.div-createProduct h1 {
+    color: #370617;
+    margin-bottom: 15px;
+}
+
+.div-createProduct form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.div-createProduct form input{
+    border: 0.7px solid grey;
+    margin-bottom: 20px;
+}
+.div-createProduct form input:hover{
+    border: none;
+    border-bottom: 0.8px solid grey;
+    box-shadow: 1.5px #dc2f02;
+}
+.div-createProduct form input:focus{
+    border: none;
+    box-shadow: 1.5px #dc2f02;
+}
+
+.div-createProduct form select{
+    margin-bottom: 18px;
+}
+.div-createProduct form textarea {
+    margin-bottom: 25px;
+}
+
+.div-createProduct form button{
+    border: none;
+    background-color: #9d0208;
+    color: white;
+}
+
+.div-createProduct form button:hover , .div-createProduct form button:focus{
+    background-color: #f55c35;
+}

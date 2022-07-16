@@ -1,9 +1,9 @@
 
 import React from 'react';
 
-export const AllCateSelections = ({cate}) => {
+export const AllCateSelections = ({cate, value}) => {
     
   return (
-    <option value={cate.id}>{cate.name}</option>
+    <option value={value}>{cate.name}</option>
   )
 }

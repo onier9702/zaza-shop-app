@@ -24,27 +24,46 @@ export const CreateCategory = () => {
   const createCate = (e) => {
     e.preventDefault();
     
-    const data = {
-      name: name
+    const formValid = () => {
+      
+      if ( name.trim().length < 2 ){
+        dispatch( setError('Debe establecer un nombre correctamente '));
+        return false;
+      } else {
+        return true;
+      };
+    };
+
+    if ( formValid() ) {
+
+      const data = {
+        name: name
+      }
+      dispatch( startCreateCategory(data, categories) )
+        .then( resp => {
+          if (resp){
+            dispatch( setError('La Categoria fue Creada'));
+            // name = '';
+            setTimeout(() => {
+              dispatch(removeError());
+            }, 1800);
+          }
+        })
+        .catch( err => console.log(err));
+
+    } else {
+      setTimeout(() => {
+        dispatch( removeError());
+      }, 1900);
     }
-    dispatch( startCreateCategory(data, categories) )
-      .then( resp => {
-        if (resp){
-          dispatch( setError('Categoria creada con exito'));
-          // name = '';
-          setTimeout(() => {
-            dispatch(removeError());
-          }, 1800);
-        }
-      })
-      .catch( err => console.log(err));
+
   }
 
   return (
 
     <div className="div-crearCat"> 
         <h1>Crear Categoria</h1>
-        <hr/>
+        {/* <hr/> */}
 
         <form  className="content animate__animated animate__fadeIn animate__faster"
                 onSubmit={createCate}

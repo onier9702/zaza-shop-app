@@ -77,8 +77,8 @@ export const EditUserAccount = () => {
                 editedData.address = address;
             };
         
-            console.log(editedData);
-            dispatch( startUpdateUserProfile(uid, editedData) )
+            // console.log(editedData);
+            dispatch( startUpdateUserProfile(uid, editedData) ) 
                 .then( resp => {
 
                     if ( resp.ok ){
@@ -155,7 +155,7 @@ export const EditUserAccount = () => {
                     value={tarjeta}
                     onChange={handleInputChange}
                 />
-                <label for="tipotarjeta">Tipo Tarjeta</label>
+                <label htmlFor="tipotarjeta">Tipo Tarjeta</label>
                 <select onChange={handleInputChange} className="form-select" aria-label="Default select example" name="tipotarjeta" value={tipotarjeta}>
                   <option value="CUP">CUP</option>
                   <option value="USD">USD</option>

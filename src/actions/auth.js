@@ -102,14 +102,14 @@ const setLoginUser = ( data ) => ({
     payload: data
 });
 
-// private
+// public
 const getUserProfileData = (id) => {
 
     return async(dispatch) => {
 
         try {
 
-            const resp = await fetchNotToken(`api/users/${id}`);
+            const resp = await fetchNotToken(`users/${id}`);
             const data = await resp.json();
 
             if ( data.user ) {
@@ -144,7 +144,7 @@ const startUpdateUserProfile = (id, form) => {
 
             dispatch( startLoadingPage());
             
-            const resp = await fetchWithToken(`api/users/${id}`, form, 'PUT');
+            const resp = await fetchWithToken(`users/${id}`, form, 'PUT');
             const data = await resp.json();
             // console.log(data);
 
