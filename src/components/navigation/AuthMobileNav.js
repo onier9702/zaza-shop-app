@@ -43,7 +43,7 @@ export const AuthMobileNav = ({isMob,closeMenu}) => {
                     type="button"
                     className="logout"
                     onClick={handleLogout}
-                ><i class="bi bi-box-arrow-right"></i> Salir</button> 
+                ><i className="bi bi-box-arrow-right"></i> Salir</button> 
             </li>
         </ul>
     </nav>

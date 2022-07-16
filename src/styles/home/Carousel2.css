@@ -17,7 +17,7 @@
     width: fit-content;
     height: auto;
     /* margin-bottom: 20px; */
-    overflow-x: auto;
+    overflow-x: auto; 
 
 }
 .slider::-webkit-scrollbar {

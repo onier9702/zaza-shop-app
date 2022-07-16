@@ -10,7 +10,7 @@ const startLoadAllSellers = () => {
 
         try {
 
-            const resp = await fetchNotToken('api/users/sellers');
+            const resp = await fetchNotToken('users/sellers');
             const data = await resp.json();
             console.log(data);
 

@@ -29,7 +29,7 @@ export const EditUserAccount = () => {
     
     const edit = (e) => {
         e.preventDefault();
-        console.log('inside /pri/editUser');
+        
         const formValid = () => {
             
             if (password){

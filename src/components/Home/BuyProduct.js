@@ -1,29 +1,25 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 import '../../styles/home/BuyProduct.css';
 
 import { useNavigate } from 'react-router-dom';
+import { getTokenFromLocalStorage } from '../../helpers/getTokenFromLocalStorage';
 
 export const BuyProduct = () => {
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const navigate = useNavigate();
     const { activeProduct } = useSelector( state => state.product);
     const { activeSeller } = useSelector( state => state.owner);
 
     const { name, address, tarjeta_CUP, tarjeta_USD, img, mobile } = activeSeller;
-    let token = localStorage.getItem('token');
 
     if ( !activeProduct.name ) {
         console.log('Not active Product');
-        if (token) {
-            navigate('/pri/');
-        } else {
-            navigate('/pub/');
-        };
+        ( getTokenFromLocalStorage() ) ? navigate('/pri/') : navigate('/pub/');
     };
       
 

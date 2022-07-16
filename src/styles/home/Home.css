@@ -42,13 +42,25 @@
 
 /* Show Categories below to Logo and search */
 .show-categories{
-    display: inline-flex;
-    margin-left: 25px;
-    margin-bottom: 20px;
-    overflow-x: auto;
-    width: auto;
+    align-items: center;
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    padding: 0px;
+    margin: 15px 0px 0px 15px;
+    overflow-x: hidden;
+
 }
-.show-categories::-webkit-scrollbar {
+.show-categories .slider{
+    height: 60px;
+    overflow-x: auto; 
+    width: fit-content;
+}
+.show-categories .slider .slides{
+    display: flex;
+    flex-direction: row;
+}
+.slider::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
 }

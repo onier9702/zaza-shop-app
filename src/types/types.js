@@ -16,8 +16,10 @@ export const types = {
 
     categoryLoadAll: '[category] Load All from DB',
     categoryActive: '[category] Active Category',
+    categoryNewCate: '[category] New Cate Added',
 
     productLoadAll: '[product] Load All from DB',
     productActive: '[product] Active Product',
+    productNewProd: '[product] New Product Added',
 
 };

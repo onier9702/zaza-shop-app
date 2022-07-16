@@ -9,7 +9,7 @@ const startChecking = () => {
     return async(dispatch) => {
 
         // console.log('I am starting checking');
-        const resp = await fetchWithToken('api/users/renew');
+        const resp = await fetchWithToken('users/renew');
         const body = await resp.json();
 
         // console.log(body);
@@ -38,7 +38,7 @@ const startRegisterUser = ( form ) => {
         try {
             
             dispatch( startLoadingPage() ); 
-            const resp = await fetchNotToken('api/users/new', form, 'POST');
+            const resp = await fetchNotToken('users/new', form, 'POST');
             const data = await resp.json();
     
             if ( data.msg ){
@@ -63,7 +63,7 @@ const startLogin = ( form ) => {
 
             dispatch( startLoadingPage() ); 
             
-            const resp = await fetchNotToken('api/users/login', form, 'POST');
+            const resp = await fetchNotToken('users/login', form, 'POST');
             const data = await resp.json();
             
             if ( !data.token ){

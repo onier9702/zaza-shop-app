@@ -32,20 +32,20 @@ export const MobileNav = ({isMob,closeMenu}) => {
                 <Link  onClick={() => (isMob) && closeMenu() } to="/pub/register" className="link" >Registrarse</Link>
             </li>
 
-            <li>
+            {/* <li>
                 <Link  onClick={() => (isMob) && closeMenu() } to="/pri/newCategory" className="link" >Crear Categoria</Link>
             </li>
 
             <li>
                 <Link  onClick={() => (isMob) && closeMenu() } to="/pri/newProduct" className="link" >Crear Producto</Link>
-            </li>
+            </li> */}
     
             {/* <li >
                 <button
                     type="button"
                     className="logout"
                     onClick={handleLogout}
-                ><i class="bi bi-box-arrow-right"></i> Salir</button> 
+                ><i className="bi bi-box-arrow-right"></i> Salir</button> 
             </li> */}
         </ul>
     </nav>

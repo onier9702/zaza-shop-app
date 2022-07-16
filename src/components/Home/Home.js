@@ -6,15 +6,14 @@ import '../../styles/home/Home.css';
 import { Logo } from '../Logo';
 import { AllCateg } from './AllCateg';
 import { CarouselProducts } from './CarouselProducts';
-import { LastProducts } from './LastProducts';
 
 export const Home = () => {
 
   const { categories } = useSelector(state => state.category);
-  const { products } = useSelector(state => state.product);
+  // const { products } = useSelector(state => state.product);
 
   // const dispatch = useDispatch();
-  console.log(categories);
+  
   const handleSubmit = (e) => {
 
     e.preventDefault();
@@ -40,11 +39,15 @@ export const Home = () => {
       </div>
 
       <div className="show-categories" >
-        {
-          categories.map( cate => (
-            <AllCateg key={cate.id} category={cate} />
-          ) )
-        }
+        <div className="slider">
+          <div className="slides">
+            {
+              categories.map( cate => (
+                <AllCateg key={cate.id} category={cate} />
+              ) )
+            }
+          </div>
+        </div>
       </div>
       
       <div className="div-recent">

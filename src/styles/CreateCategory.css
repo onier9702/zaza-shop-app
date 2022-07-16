@@ -1,0 +1,57 @@
+
+/* Create Category */
+
+.div-crearCat {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+}
+
+.div-crearCat h1{
+    color: #0d47a1;
+}
+
+.div-crearCat form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+.div-crearCat form > *{
+    margin: 5px;
+}
+.div-crearCat form input{
+    border: 0.5px solid grey;
+}
+.div-crearCat form input:focus{
+    border: none;
+    box-shadow: 1.5px #42a5f5;
+}
+
+.div-crearCat form button{
+    border: none;
+    background-color: #42a5f5;
+}
+.div-crearCat form button:hover , .div-crearCat form button:focus {
+    background-color: #1565c0;
+    color: white;
+}
+
+/* .div-crearCat .allCategories > *{
+    margin: 7px;
+} */
+.div-crearCat .allCategories {
+    margin-bottom: 18px;
+    
+}
+.div-crearCat .allCategories label{
+    color: #17c3b2;
+    font-size: 25px;
+    margin-bottom: 4px;
+}
+
+.div-crearCat .note{
+    background-color: #90caf9;
+    border-radius: 7px;
+    margin-top: 20px;
+    padding: 10px;
+}

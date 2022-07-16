@@ -1,8 +1,9 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { findActiveSeller, ownerUserProduct } from '../../actions/owner';
+import { findActiveSeller } from '../../actions/owner';
+import { getTokenFromLocalStorage } from '../../helpers/getTokenFromLocalStorage';
 
 import '../../styles/home/SingleProduct.css';
 
@@ -21,25 +22,17 @@ export const SingleProduct = () => {
         navigate(-1);
     };
 
-    let token;
-    useEffect(() => {
-        token = localStorage.getItem('token');
-    }, [token]);
-    
-
     const handleBuyProduct = () => {
         // e.preventDefault();        
         console.log('Buy a Iphone inside carousel products');
         dispatch( findActiveSeller(user._id, sellers) );
-        if (token){
-            navigate('/pri/buyProduct');
-        } else {
-            navigate('/pub/buyProduct');
-        };   
+        
+        ( getTokenFromLocalStorage() ) ? navigate('/pri/buyProduct') : navigate('/pub/buyProduct');
+        
     };
 
     if (!name) {
-        return <h3>Debe regresar a la pagina anterior y seleccionar un Producto</h3>
+        ( getTokenFromLocalStorage ) ? navigate('/pri/') : navigate('/pub/');
     }
 
   return (

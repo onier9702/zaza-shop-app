@@ -1,9 +1,10 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { findActiveProduct } from '../../actions/homeEvents';
 import { findActiveSeller } from '../../actions/owner';
+import { getTokenFromLocalStorage } from '../../helpers/getTokenFromLocalStorage';
 
 import '../../styles/CuadroProdBelongCate.css';
 
@@ -15,12 +16,11 @@ export const ProdsBelongCate = ({product}) => {
     const { products, activeProduct } = useSelector( state => state.product);
     const { sellers } = useSelector( state => state.owner);
 
+    // let token;
 
-    let token;
-
-    useEffect(() => {
-      token = localStorage.getItem('token');
-    }, [token])
+    // useEffect(() => {
+    //   token = localStorage.getItem('token');
+    // }, [token])
     
   
     const handleBuyProduct = ({target}) => {
@@ -28,11 +28,8 @@ export const ProdsBelongCate = ({product}) => {
         const idProd = target.id;
         dispatch( findActiveProduct(idProd, products) );
         dispatch( findActiveSeller(activeProduct.user._id, sellers) );
-        if ( token ){
-            navigate('/pri/singleProduct');
-        } else {
-            navigate('/pub/singleProduct');
-        };  
+        
+        ( getTokenFromLocalStorage() ) ? navigate('/pri/singleProduct') : navigate('/pub/singleProduct');
 
     };
   

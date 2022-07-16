@@ -1,6 +1,6 @@
 
-// const baseUrl = process.env.REACT_APP_API_URL;
-const baseUrl = 'https://zaza-shop.herokuapp.com';
+// const baseUrl = process.env.REACT_APP_API_URL; // put this on production
+const baseUrl = 'https://zaza-shop.herokuapp.com/api';
 
 const fetchNotToken = ( endpoint, data, method = 'GET' ) => {
 
@@ -47,21 +47,11 @@ const fetchWithToken = ( endpoint, data, method = 'GET' ) => {
     }
 };
 
-const getTokenFromLocalStorage = () => {
 
-    const token = localStorage.getItem('token');
-    if (token) {
-        return token;
-    } else {
-        return null;
-    }
-
-};
 
 export {
     fetchNotToken,
     fetchWithToken,
-    getTokenFromLocalStorage
 }
 
 

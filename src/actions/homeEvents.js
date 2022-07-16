@@ -9,8 +9,7 @@ const startLoadAllCategories = ( ) => {
 
         try {
 
-            console.log('Holaa');
-            const resp = await fetchNotToken('api/categories/');
+            const resp = await fetchNotToken('categories/');
             const {categories} = await resp.json();
             // console.log(data);
     
@@ -36,7 +35,7 @@ const startLoadAllProducts = () => {
 
         try {
 
-            const resp = await fetchNotToken('api/products');
+            const resp = await fetchNotToken('products/');
             const {products} = await resp.json();
             // console.log(products);
 
