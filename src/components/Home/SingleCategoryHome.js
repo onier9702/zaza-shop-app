@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { getTokenFromLocalStorage } from '../../helpers/getTokenFromLocalStorage';
 
 import '../../styles/home/SingleCategory.css';
 import { ProdsBelongCate } from './ProdsBelongCate';
@@ -12,6 +13,14 @@ export const SingleCategoryHome = () => {
   const { activeCategory, categories } = useSelector( state => state.category);
   const { name } = activeCategory;
   const { products } = useSelector(state => state.product);
+
+  useEffect(() => {
+    if ( !name ){
+        console.log('Ative Category empty');
+        ( getTokenFromLocalStorage() ) ? navigate('/pri/') : navigate('/pub/');
+    }
+    
+}, [name, navigate])
 
   let prodBelongCate = [];
   for ( let prod of products ){

@@ -52,6 +52,10 @@ export const EditUserAccount = () => {
                     return false;
                 };
             };
+            if ( !mobile && !password && !password2 && !tarjeta && !address ) {
+                dispatch( setError('Debe de actualizar algun campo antes de enviar') );
+                return false;
+            }
             // dispatch(removeError());
             return true;
         }

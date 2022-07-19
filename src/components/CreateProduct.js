@@ -16,7 +16,7 @@ export const CreateProduct = () => {
   const { products } = useSelector( state => state.product);
   const {msg, loading} = useSelector( state => state.ui);
 
-  const [formValue, handleInputChange] = useForm( {
+  const [formValue, handleInputChange, reset] = useForm( {
     name: '',
     precio: '',
     category: '',
@@ -71,7 +71,7 @@ export const CreateProduct = () => {
         .then( resp => {
           if (resp){
             dispatch( setError('El Producto fue Creado'));
-            // name = '';
+            reset();
             setTimeout(() => {
               dispatch(removeError());
             }, 1800);

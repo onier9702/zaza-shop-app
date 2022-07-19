@@ -15,7 +15,7 @@ export const CreateCategory = () => {
   const { categories } = useSelector( state => state.category);
   const {msg} = useSelector( state => state.ui);
 
-  const [formValue, handleInputChange] = useForm( {
+  const [formValue, handleInputChange, reset] = useForm( {
     name: '',
   } );
 
@@ -44,6 +44,7 @@ export const CreateCategory = () => {
           if (resp){
             dispatch( setError('La Categoria fue Creada'));
             // name = '';
+            reset();
             setTimeout(() => {
               dispatch(removeError());
             }, 1800);
@@ -52,6 +53,7 @@ export const CreateCategory = () => {
         .catch( err => console.log(err));
 
     } else {
+      reset();
       setTimeout(() => {
         dispatch( removeError());
       }, 1900);

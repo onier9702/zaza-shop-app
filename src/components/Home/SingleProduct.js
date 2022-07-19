@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { findActiveSeller } from '../../actions/owner';
@@ -11,12 +11,21 @@ export const SingleProduct = () => {
 
     const dispatch = useDispatch();
     const {activeProduct} = useSelector(state => state.product);
+    console.log(activeProduct.name);
     const {sellers} = useSelector(state => state.owner);
+    // const [activeProd, setActiveProd] = useState(true);
 
-    const { name, id, user, category, precio, description, amount, img } = activeProduct;
-
+    const { name, user, precio, description, amount, img } = activeProduct;
 
     const navigate = useNavigate();
+    useEffect(() => {
+        if ( !name ){
+            console.log('Ative Product empty');
+            ( getTokenFromLocalStorage() ) ? navigate('/pri/') : navigate('/pub/');
+        }
+        
+    }, [name, navigate])
+    
 
     const handleReturn = () => {
         navigate(-1);
@@ -30,23 +39,40 @@ export const SingleProduct = () => {
         ( getTokenFromLocalStorage() ) ? navigate('/pri/buyProduct') : navigate('/pub/buyProduct');
         
     };
-
-    if (!name) {
-        ( getTokenFromLocalStorage ) ? navigate('/pri/') : navigate('/pub/');
-    }
+                    
+                    
 
   return (
     <div className="single-product">
         <i className="bi bi-arrow-left-short" onClick={handleReturn} ></i>
         <div className="info-product">
+            
+            <img src={img} alt="singleProduct" />
             <h3>{name}</h3>
-
-            <img src={img} alt="img-single" />
             <span>{`Precio: ${precio}`}</span>
-            <span>{`Categoria: ${category.name}`}</span>
+            {/* <span>{`Categoria: ${category.name}`}</span> */}
             <span>{`Quedan: ${amount} de este producto`}</span>
             <span>{`Descripcion: ${description}`}</span>
 
+            {/* {
+                ( img ) && <img src={img} alt="singleProduct" />
+            }
+            {
+                ( name ) && <h3>{name}</h3>
+            }
+            {
+                ( precio ) && <span>{`Precio: ${precio}`}</span>
+            }
+            {
+                ( category.name ) && <span>{`Categoria: ${category.name}`}</span>
+            }
+            {
+                ( amount ) && <span>{`Quedan: ${amount} de este producto`}</span>
+            }
+            {
+                ( description ) && <span>{`Descripcion: ${description}`}</span>
+            } */}
+            
             <button type="button" className="btn btn-success" onClick={handleBuyProduct} >Ir a Comprar</button>
 
         </div>
