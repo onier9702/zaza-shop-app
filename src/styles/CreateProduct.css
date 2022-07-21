@@ -1,6 +1,17 @@
 
 /* Create Product */
-
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.header #icon-cam{
+    box-shadow: 2px rgb(191, 109, 109);
+    color: red;
+}
+.header #icon-cam:hover{
+    color: black;
+    cursor: pointer;
+}
 .div-createProduct{
     padding: 18px;
 }
@@ -50,12 +61,7 @@
 
 /* Upload Img */
 
-.div-createProduct .btnImg{
-    border: none;
-    background-color: orangered;
-    margin-bottom: 30px;
-    width: 130px;
-}
+
 .div-createProduct .img{
     display: none;
     /* border: none;

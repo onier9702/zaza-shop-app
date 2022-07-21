@@ -8,10 +8,12 @@ import { AllCateSelections } from './AllCateSelections';
 import { startCreateCategory } from '../actions/createCateOrProduct';
 import { removeError, removeMsgGreen, removeMsgRed, setError, setMsgGreen, setMsgRed } from '../actions/ui';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 export const CreateCategory = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { categories } = useSelector( state => state.category);
   const {msgGreen, msgRed} = useSelector( state => state.ui);
 
@@ -48,6 +50,7 @@ export const CreateCategory = () => {
             setTimeout(() => {
               dispatch(removeMsgGreen());
             }, 1800);
+            navigate(-1);
           }
         })
         .catch( err => console.log(err));

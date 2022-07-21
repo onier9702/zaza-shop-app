@@ -10,11 +10,13 @@ import { useForm } from '../hooks/useForm';
 import { AllCateSelections } from './AllCateSelections';
 import { startUpdateProduct } from '../actions/userProduct';
 import { startUploadImg } from '../actions/createCateOrProduct';
+import { useNavigate } from 'react-router-dom';
 
 export const EditProduct = () => {
 
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { categories } = useSelector( state => state.category);
     const { activeUserProduct } = useSelector( state => state.userProd);
 
@@ -103,6 +105,7 @@ export const EditProduct = () => {
                     setTimeout(() => {
                         dispatch(removeMsgGreen());
                     }, 1700);
+                    navigate(-1);
                 } else {
                     dispatch( setMsgRed(resp.msg));
                     setTimeout(() => {
@@ -116,7 +119,12 @@ export const EditProduct = () => {
 
   return (
     <div className="div-createProduct">
-        <h1>Editar/Actualizar Producto</h1>
+
+        <div className="header">
+            <h1>Editar/Actualizar Producto</h1>
+            <i className="bi bi-camera-fill" onClick={handleImgClick} id="icon-cam"></i>
+        </div>
+
 
         <form  className="content animate__animated animate__fadeIn animate__faster"
                 onSubmit={updateProduct}
@@ -178,9 +186,9 @@ export const EditProduct = () => {
 
         </form>
 
-        <button className="btnImg"
-            onClick={handleImgClick}
-        >Subir Imagen</button>
+        {/* <button className="btnImg"
+                onClick={handleImgClick}
+        >Subir Imagen</button> */}
 
         <input type="file"
                ref={inputImg}

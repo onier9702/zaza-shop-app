@@ -8,10 +8,12 @@ import { removeMsgGreen, removeMsgRed, setMsgGreen, setMsgRed } from '../actions
 import { useForm } from '../hooks/useForm';
 import { AllCateSelections } from './AllCateSelections';
 import { startCreateProduct } from '../actions/createCateOrProduct' 
+import { useNavigate } from 'react-router-dom';
 
 export const CreateProduct = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { categories } = useSelector( state => state.category);
   const { products } = useSelector( state => state.product);
   const {msgGreen, msgRed, loading} = useSelector( state => state.ui);
@@ -75,6 +77,7 @@ export const CreateProduct = () => {
             setTimeout(() => {
               dispatch(removeMsgGreen());
             }, 1800);
+            navigate('/pri/myOwnProducts');
           }
         })
         .catch( err => console.log(err));

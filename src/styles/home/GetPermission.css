@@ -53,3 +53,9 @@
     color: #008000;
 }
 
+@media (max-width: 430px){
+    .getPermission .admin h3{
+        font-size: medium;
+    }
+}
+

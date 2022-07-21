@@ -29,7 +29,10 @@ export const ProdsBelongCate = ({product}) => {
         dispatch( findActiveProduct(idProd, products) );
         dispatch( findActiveSeller(activeProduct.user._id, sellers) );
         
-        ( getTokenFromLocalStorage() ) ? navigate('/pri/singleProduct') : navigate('/pub/singleProduct');
+        setTimeout(() => {
+            ( getTokenFromLocalStorage() ) ? navigate('/pri/singleProduct') : navigate('/pub/singleProduct');
+        }, 800);
+        
 
     };
   

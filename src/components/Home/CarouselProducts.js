@@ -11,7 +11,7 @@ export const CarouselProducts = () => {
   const { products } = useSelector(state => state.product);
 
   let newArr = [];
-  for ( let i = products.length ; i > (products.length - 5); i--  ){
+  for ( let i = products.length ; i > (products.length - 7); i--  ){
     newArr.push(products[i-1]);
   };
   console.log(newArr);
