@@ -2,6 +2,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { BuyProduct } from '../components/Home/BuyProduct';
+import { GetPermission } from '../components/Home/GetPermission';
 
 import { Home } from '../components/Home/Home';
 import { Search } from '../components/Home/Search';
@@ -20,6 +21,8 @@ export const AuthHomeRouter = () => {
             
             <Route path="login" element={ <LoginScreen /> } />
             <Route path="register" element={ <RegisterScreen /> } />
+            <Route path="permission" element={ <GetPermission /> } />
+            
             <Route path="singleProduct" element={ <SingleProduct /> } />
             <Route path="buyProduct" element={ <BuyProduct /> } />
             <Route path="singleCategory" element={ <SingleCategoryHome /> } />
