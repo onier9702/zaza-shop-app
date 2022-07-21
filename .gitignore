@@ -12,9 +12,9 @@ NOTAS.js/
 # production
 /build
 
+
 # misc
 .DS_Store
-.env
 .env.local
 .env.development
 .env.production
