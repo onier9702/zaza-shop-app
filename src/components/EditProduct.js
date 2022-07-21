@@ -96,7 +96,7 @@ export const EditProduct = () => {
     const handleImgChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-          dispatch( startUploadImg(id, file, products) )
+          dispatch( startUploadImg(id, 'products',file, products) )
             .then( resp => {
                 if (resp.ok){
                     dispatch(setMsgGreen('Imagen Posteada Correctamente'));

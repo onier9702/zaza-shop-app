@@ -40,9 +40,11 @@
     margin-right: 20px;
 }
 .slide .cuadro-product{
+    align-items: center;
     /* background-color: gray; */
     cursor: pointer;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     margin-left: 10px;
     margin-right: 20px;
@@ -50,7 +52,7 @@
 .slide .cuadro-product .color-precio{
     color: red;
     padding-bottom: 10px;
-    margin-left: 70px;
+    /* margin-left: 42px; */
 }
 .slide .cuadro-product img {
     margin-bottom: 10px;

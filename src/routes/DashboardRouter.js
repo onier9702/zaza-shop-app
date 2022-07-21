@@ -8,6 +8,7 @@ import { EditProduct } from '../components/EditProduct';
 import { EditUserAccount } from '../components/EditUserAccount';
 import { BuyProduct } from '../components/Home/BuyProduct';
 import { Home } from '../components/Home/Home';
+import { MyOwnProducts } from '../components/Home/MyOwnProducts';
 import { Search } from '../components/Home/Search';
 import { SingleCategoryHome } from '../components/Home/SingleCategoryHome';
 import { SingleProduct } from '../components/Home/SingleProduct';
@@ -24,8 +25,7 @@ export const DashboardRouter = () => {   // private with all privileges
             <Route path="user" element={ <MyProfile /> } />
             <Route path="editUser" element={ <EditUserAccount /> } />
             <Route path="editProduct" element={ <EditProduct /> } />
-            
-            
+            <Route path="myOwnProducts" element={ <MyOwnProducts /> } />
             
             <Route path="singleProduct" element={ <SingleProduct /> } />
             <Route path="buyProduct" element={ <BuyProduct /> } />

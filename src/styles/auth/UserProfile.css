@@ -30,8 +30,13 @@
     width: 100%;
 }
 .div-color .isFullForm{
-    /* align-self: flex-end; */
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
+    padding: 10px;
+}
+.div-color .isFullForm i:hover{
+    color: red;
 }
 /* #edit-icon{
     position: absolute;
@@ -42,21 +47,26 @@
     cursor: pointer;
     color: blue;
 }
+.div-img-user{
+    display: flex;
+    justify-content: center;
+}
 .div-img-user img{
     border-radius: 100%;
     width: 30vw;
 }
 .div-user-info{
-    /* border: 0.8px solid black; */
     border-radius: 15px;
-    /* background-color: #bde0fe; */
+    display: flex;
+    justify-content: center;
     padding: 20px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     width: fit-content;
 }
 
 .div-user-info ul{
     display: flex;
+    justify-content: center;
     flex-direction: column;
     list-style: none;
 }
@@ -102,6 +112,14 @@
 .div-user-info ul li .div-h5-p p{
     font-size: 18px;
     /* padding-top: 1.5px; */
+}
+
+.div-profile .divButtonSeeProducts{
+    padding: 0px 30px 50px 30px;
+    width: 100%;
+}
+.div-profile .divButtonSeeProducts button {
+    width: 100%;
 }
 
 @media (max-width: 530px) {

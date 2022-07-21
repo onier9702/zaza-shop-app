@@ -1,11 +1,16 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { getUserProfileData, setLoginUser } from '../actions/auth';
+import { startUploadImg } from '../actions/createCateOrProduct';
+import { removeMsgGreen, removeMsgRed, setMsgGreen, setMsgRed } from '../actions/ui';
+import { setAllOwnProducts } from '../actions/userProduct';
 
 import '../styles/auth/UserProfile.css';
-import { MyOwnProducts } from './Home/MyOwnProducts';
+import { AllOwnProds } from './Home/AllOwnProds';
+// import { MyOwnProducts } from './Home/MyOwnProducts';
 
 export const MyProfile = () => {
 
@@ -13,8 +18,13 @@ export const MyProfile = () => {
   const dispatch = useDispatch();
   const [isLogged, setIsLogged] = useState(false);
   const [fullForm, setFullForm] = useState(false);
-  
+  const { msgGreen, msgRed } = useSelector( state => state.ui);
   const {name, role, email, mobile, tarjeta_CUP, tarjeta_USD, address, uid, img} = useSelector( state => state.auth);
+
+  // All Own Products
+  const { products } = useSelector(state => state.product);
+  const arrOwnProds = products.filter( prod => prod.user.name === name );
+  dispatch( setAllOwnProducts(arrOwnProds) );
 
   useEffect(() => {
     
@@ -57,9 +67,43 @@ export const MyProfile = () => {
 
 
   const handleEditUserAccount = () => {
-
     navigate('/pri/editUser');
-    console.log('I clicked on Edit Icon');
+  };
+
+  // Uploading User Image
+  const imgUploadRef = useRef(null);
+
+  const handleUploadUserImg = () => {
+    imgUploadRef.current.click();
+  };
+
+  const handleImgChange = (e) => {
+    const file = e.target.files[0];
+    if (file){
+      dispatch(startUploadImg(uid, 'users' ,file, []))
+        .then( resp => {
+          if (resp.ok){
+            dispatch( setMsgGreen('Imagen de Usuario posteada correctamente'));
+            setTimeout(() => {
+              dispatch(removeMsgGreen());
+            }, 1700);
+          } else {
+            dispatch( setMsgRed(resp.msg));
+                    setTimeout(() => {
+                        dispatch(removeMsgRed());
+                    }, 1700);
+          }
+        })
+        .catch( err => console.log(err));
+    };
+  };
+
+  // Click See User Products
+  const handleSeeUserProds = () => {
+    if (role === 'USER_ROLE'){
+      return Swal.fire('Atentamente', 'Debe contactar Administrador para darle permiso de vendedor y pueda tener sus productos', 'warning');
+    }
+    navigate('/pri/myOwnProducts');
 
   };
 
@@ -82,13 +126,24 @@ export const MyProfile = () => {
           <i onClick={handleEditUserAccount} className="bi bi-pencil-square" id="edit-icon"></i>
         </div>
         <hr/>
-
+        {
+            (msgGreen) && <div style={{color: 'blue'}} > { msgGreen } </div>
+        }
+        {
+            (msgRed) && <div style={{color: 'red'}} > { msgRed } </div>
+        }
         <div className="isFullForm" >
           {
             (fullForm) && <h6 style={{color: 'red'}}>Perfil Incompleto</h6>
                 // ? 
                 // : <h6 style={{color: 'blue'}}>Perfil Completado al 100%</h6>
           }
+          <input type="file"
+                 onChange={handleImgChange}
+                 ref={imgUploadRef}
+                 style={{display: 'none'}}
+          />
+          <i className="bi bi-camera-fill" onClick={handleUploadUserImg}></i>
         </div>
 
         <div className="div-img-user" >
@@ -189,9 +244,11 @@ export const MyProfile = () => {
 
         </div>
       </div>
+
+      <div onClick={handleSeeUserProds} className="divButtonSeeProducts">
+        <button type="button" className="btn btn-info">Ver mis Productos</button>
+      </div>
       
-      <h1>Mis Productos</h1>
-      <MyOwnProducts />
 
     </div>
   )

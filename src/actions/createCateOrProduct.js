@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import { fetchUploadImg, fetchWithToken } from "../helpers/fetch";
 import { types } from "../types/types";
+import { setLoginUser } from "./auth";
 import { setAllProducts } from "./homeEvents";
 
 const startCreateCategory = ( name = {}, categories = [] ) => {
@@ -63,22 +64,25 @@ const startCreateProduct = ( form = {}, products = [] ) => {
     };
 };
 
-const startUploadImg = ( id = '', file, products = [] ) => {
+const startUploadImg = ( id = '', collection = '', file, products = [] ) => {  
 
     return async(dispatch) => {
 
         try {
-            const resp = await fetchUploadImg(`upload/products/${id}`, file);
+            const resp = await fetchUploadImg(`upload/${collection}/${id}`, file);
             const data = await resp.json();
-            // console.log(data.model);
+            console.log(data);
 
             if (data.model){
-                const newArr = [];
-                products.map( p => newArr.push(p));
-                const realArr = newArr.filter( prod => prod.id !== data.model.id);
-                realArr.push(data.model);
-
-                dispatch( setAllProducts(realArr) );
+                if ( products.length > 0){
+                    const newArr = [];
+                    products.map( p => newArr.push(p));
+                    const realArr = newArr.filter( prod => prod.id !== data.model.id);
+                    realArr.push(data.model);
+                    dispatch( setAllProducts(realArr) );
+                } else {
+                    dispatch( setLoginUser(data.model));
+                }
                 return {
                     ok: true
                 };
