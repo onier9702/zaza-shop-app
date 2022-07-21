@@ -1,22 +1,47 @@
 
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { startSearch } from '../../actions/homeEvents';
+import { removeMsgRed, setMsgRed } from '../../actions/ui';
+import { getTokenFromLocalStorage } from '../../helpers/getTokenFromLocalStorage';
+import { useForm } from '../../hooks/useForm';
 
 import '../../styles/home/Home.css';
 import { Logo } from '../Logo';
 import { AllCateg } from './AllCateg';
 import { CarouselProducts } from './CarouselProducts';
+import { Search } from './Search';
 
 export const Home = () => {
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { categories } = useSelector(state => state.category);
-  // const { products } = useSelector(state => state.product);
+  // const { msgRed } = useSelector(state => state.ui);
 
-  // const dispatch = useDispatch();
+  const [formValue, handleInputChange, reset] = useForm({
+    terminus: ''
+  });
+
+  const { terminus } = formValue;
   
   const handleSubmit = (e) => {
 
     e.preventDefault();
+    if ( terminus.trim().length === 0 ){
+      return;
+    }
+    dispatch( startSearch(terminus) )
+      .then( resp => {
+        if( resp.ok ){
+          console.log('vgvjjh');
+          ( getTokenFromLocalStorage() ) ? navigate('/pri/busqueda') : navigate('/pub/busqueda');
+        }
+      })
+      .catch( err => console.log(err));
+
+    reset();
 
   };
 
@@ -26,14 +51,20 @@ export const Home = () => {
       <div className="home">
 
         <Logo />
-
         <form className="form-search" 
                     onSubmit={handleSubmit}>
-
-            <input type="text" className="form-control" 
-                  placeholder="Buscar..." 
-                  aria-label="search" 
-                  aria-describedby="basic-addon1" />
+            
+            <div className="div-search">
+              <input type="text" className="form-control" 
+                    name="terminus"
+                    onChange={handleInputChange}
+                    value={terminus}
+                    placeholder="Buscar..." 
+                    autoComplete="off"
+                    aria-label="search" 
+                    aria-describedby="basic-addon1" />
+              <i className="bi bi-search" typeof="submit" onClick={handleSubmit} ></i>
+            </div>
 
         </form>
       </div>

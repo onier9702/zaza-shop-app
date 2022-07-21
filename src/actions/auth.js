@@ -172,6 +172,7 @@ const startUpdateUserProfile = (id, form) => {
     };
 };
 
+
 const startLogout = () => {
 
     return async(dispatch) => {
@@ -194,5 +195,5 @@ export {
     getUserProfileData,
     setLoginUser,
     startLogout,
-    startChecking
+    startChecking,
 }

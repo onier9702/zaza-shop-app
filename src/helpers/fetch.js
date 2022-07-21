@@ -47,11 +47,34 @@ const fetchWithToken = ( endpoint, data, method = 'GET' ) => {
     }
 };
 
+// private with token
+const fetchUploadImg = ( endpoint, file ) => {
+
+    const url = `${ baseUrl }/${ endpoint }`;
+    console.log(url);
+
+    const token = localStorage.getItem('token') || '';
+    // console.log(token);
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return fetch( url, {
+            method: "POST",
+            headers: {
+                'x-token': token 
+            },
+            body: formData,
+    });
+    
+};
+
 
 
 export {
     fetchNotToken,
     fetchWithToken,
+    fetchUploadImg
 }
 
 

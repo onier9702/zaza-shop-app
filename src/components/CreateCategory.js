@@ -6,14 +6,14 @@ import '../styles/CreateCategory.css';
 import { useForm } from '../hooks/useForm';
 import { AllCateSelections } from './AllCateSelections';
 import { startCreateCategory } from '../actions/createCateOrProduct';
-import { removeError, setError } from '../actions/ui';
+import { removeError, removeMsgGreen, removeMsgRed, setError, setMsgGreen, setMsgRed } from '../actions/ui';
 import Swal from 'sweetalert2';
 
 export const CreateCategory = () => {
 
   const dispatch = useDispatch();
   const { categories } = useSelector( state => state.category);
-  const {msg} = useSelector( state => state.ui);
+  const {msgGreen, msgRed} = useSelector( state => state.ui);
 
   const [formValue, handleInputChange, reset] = useForm( {
     name: '',
@@ -27,7 +27,7 @@ export const CreateCategory = () => {
     const formValid = () => {
       
       if ( name.trim().length < 2 ){
-        dispatch( setError('Debe establecer un nombre correctamente '));
+        dispatch( setMsgRed('Debe establecer un nombre correctamente '));
         return false;
       } else {
         return true;
@@ -42,11 +42,11 @@ export const CreateCategory = () => {
       dispatch( startCreateCategory(data, categories) )
         .then( resp => {
           if (resp){
-            dispatch( setError('La Categoria fue Creada'));
+            dispatch( setMsgGreen('La Categoria fue Creada'));
             // name = '';
             reset();
             setTimeout(() => {
-              dispatch(removeError());
+              dispatch(removeMsgGreen());
             }, 1800);
           }
         })
@@ -55,7 +55,7 @@ export const CreateCategory = () => {
     } else {
       reset();
       setTimeout(() => {
-        dispatch( removeError());
+        dispatch( removeMsgRed());
       }, 1900);
     }
 
@@ -72,7 +72,10 @@ export const CreateCategory = () => {
                 type="submit"
         >
           {
-            (msg) && <h5 style={{margin:20, color:'blue'}}>{msg}</h5>
+              (msgGreen) && <div style={{color: 'green'}} /*className="alert-danger"*/ > { msgGreen } </div>
+          }
+          {
+              (msgRed) && <div style={{color: 'red'}} /*className="alert-danger"*/ > { msgRed } </div>
           }
           <input
               type="text"

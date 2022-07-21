@@ -11,6 +11,11 @@ export const types = {
     uiStartLoading: '[UI] Start loading',
     uiFinishLoading: '[UI] Finish loading',
 
+    uiSetMsgGreen: '[UI] Set MsgGreen ',
+    uiRemoveMsgGreen: '[UI] Remove MsgGreen ',
+    uiSetMsgRed: '[UI] Set MsgRed ',
+    uiRemoveMsgRed: '[UI] Remove MsgRed ',
+
     ownerActive: '[proprietor] Seller User',
     ownerLoadAll: '[proprietor] All Sellers',
 
@@ -21,5 +26,10 @@ export const types = {
     productLoadAll: '[product] Load All from DB',
     productActive: '[product] Active Product',
     productNewProd: '[product] New Product Added',
+
+    searchFoundedProd: '[search] Founded Products',
+
+    userAllProducts: '[user] All User Products',
+    userActiveProduct: '[user] Active User Product'
 
 };

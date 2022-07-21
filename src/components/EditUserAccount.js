@@ -3,7 +3,7 @@ import React from 'react';
 
 import '../styles/auth/EditUserProfile.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeError, setError } from '../actions/ui';
+import { removeError, removeMsgGreen, removeMsgRed, setError, setMsgGreen, setMsgRed } from '../actions/ui';
 import { useForm } from '../hooks/useForm';
 import { startUpdateUserProfile } from '../actions/auth';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +13,7 @@ export const EditUserAccount = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {msg, loading} = useSelector(state => state.ui);
+    const {msgGreen, msgRed, loading} = useSelector(state => state.ui);
     const {uid} = useSelector(state => state.auth);
 
     const [formValue, handleInputChange] = useForm( {
@@ -34,26 +34,26 @@ export const EditUserAccount = () => {
             
             if (password){
                 if (password !== password2 || password.length < 6){
-                    dispatch(setError('La contraseña debe coincidir y tener al menos 6 caracteres '));
+                    dispatch(setMsgRed('La contraseña debe coincidir y tener al menos 6 caracteres '));
                     return false;
                 };
             };
 
             if (mobile){
                 if (mobile.trim().length < 8 || mobile.trim().length > 13){
-                    dispatch(setError('El Numero Telefono es incorrecto'));
+                    dispatch(setMsgRed('El Numero Telefono es incorrecto'));
                     return false;
                 };
                 
             };
             if (tarjeta){
                 if (tarjeta.trim().length < 19){
-                    dispatch(setError('La tarjeta tiene un formato incorrecto, intente con este formato xxxx-xxxx-xxxx-xxxx'));
+                    dispatch(setMsgRed('La tarjeta tiene un formato incorrecto, intente con este formato xxxx-xxxx-xxxx-xxxx'));
                     return false;
                 };
             };
             if ( !mobile && !password && !password2 && !tarjeta && !address ) {
-                dispatch( setError('Debe de actualizar algun campo antes de enviar') );
+                dispatch( setMsgRed('Debe de actualizar algun campo antes de enviar') );
                 return false;
             }
             // dispatch(removeError());
@@ -86,15 +86,15 @@ export const EditUserAccount = () => {
                 .then( resp => {
 
                     if ( resp.ok ){
-                        dispatch( setError('Actualizado con exito'));
+                        dispatch( setMsgGreen('Actualizado con exito'));
                         setTimeout(() => {
-                            dispatch(removeError());
+                            dispatch(removeMsgGreen());
                             navigate('/pri/user');
                         }, 1200);
                     } else {
-                        dispatch( setError('Un error ha ocurrido, reintente'));
+                        dispatch( setMsgRed('Un error ha ocurrido, reintente'));
                         setTimeout(() => {
-                            dispatch( removeError());
+                            dispatch( removeMsgRed());
                         }, 1300);
                     }
 
@@ -103,13 +103,10 @@ export const EditUserAccount = () => {
 
         } else {
             setTimeout(() => {
-                dispatch(removeError());
+                dispatch(removeMsgRed());
             }, 2300);
 
         };
-        // setTimeout(() => {
-        //     dispatch(removeError());
-        // }, 2000);
 
     };
 
@@ -121,7 +118,10 @@ export const EditUserAccount = () => {
                 type="submit"
                 >
                 {
-                    (msg) && <div className="alert-danger" > { msg } </div>
+                    (msgGreen) && <div style={{color: 'green'}} /*className="alert-danger"*/ > { msgGreen } </div>
+                }
+                {
+                    (msgRed) && <div style={{color: 'red'}} /*className="alert-danger"*/ > { msgRed } </div>
                 }
                 <h6>Contraseña</h6>
                 <input

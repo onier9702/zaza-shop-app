@@ -7,7 +7,7 @@ import validator from 'validator';
 // import Swal from 'sweetalert2';
 
 import { useForm } from '../hooks/useForm';
-import { removeError, setError } from '../actions/ui';
+import { removeMsgGreen, removeMsgRed, setMsgGreen, setMsgRed } from '../actions/ui';
 import '../styles/auth/Login.css';
 import { startRegisterUser } from '../actions/auth';
 
@@ -15,7 +15,7 @@ export const RegisterScreen = () => {
 
 
     const dispatch = useDispatch();
-    const {msg} = useSelector(state => state.ui);
+    const {msgGreen, msgRed} = useSelector(state => state.ui);
     const navigate = useNavigate(); 
 
     const [formValue, handleInputChange] = useForm( {
@@ -40,33 +40,33 @@ export const RegisterScreen = () => {
                 mobile
             }
             dispatch(startRegisterUser(data));
-            dispatch(setError('Registro Exitoso'));
+            dispatch(setMsgGreen('Registro Exitoso'));
             setTimeout(() => {
-                dispatch(removeError());
+                dispatch(removeMsgGreen());
                 navigate('/pub/login');
             }, 1500);
         } else {
             setTimeout(() => {
-                dispatch( removeError());
+                dispatch( removeMsgRed());
             }, 1900);
         }
     }
 
     const formValid = () => {
         if(name.trim().length === 0 ){
-            dispatch(setError('El nombre esta vacio'));
+            dispatch(setMsgRed('El nombre esta vacio'));
              return false;
         } else if (!(validator.isEmail(email))){
-            dispatch(setError('El Correo es incorrecto'));
+            dispatch(setMsgRed('El Correo es incorrecto'));
             return false;
         } else if (password !== password2 || password.length < 6){
-            dispatch(setError('La contraseña debe coincidir y tener al menos 6 caracteres '));
+            dispatch(setMsgRed('La contraseña debe coincidir y tener al menos 6 caracteres '));
             return false;
         } else if (mobile.trim().length  < 8 || mobile.trim().length  > 13){
-            dispatch(setError('El Numero Telefono es incorrecto'));
+            dispatch(setMsgRed('El Numero Telefono es incorrecto'));
             return false;
         }
-        dispatch(removeError());
+        // dispatch(removeError());
         return true;
     }
 
@@ -81,7 +81,10 @@ export const RegisterScreen = () => {
                         >
 
                     {
-                        (msg) && <div className="alert-danger" > { msg } </div>
+                        (msgGreen) && <div style={{color: 'green'}} /*className="alert-danger"*/ > { msgGreen } </div>
+                    }
+                    {
+                        (msgRed) && <div style={{color: 'red'}} /*className="alert-danger"*/ > { msgRed } </div>
                     }
                     <input
                         type="text"

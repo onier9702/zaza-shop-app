@@ -7,7 +7,9 @@ import { types } from '../types/types';
 const initialState = {
 
     loading: false,
-    msg: null
+    msg: null,
+    msgGreen: null,
+    msgRed: null
 }
 
 export const uiReducer = (state = initialState, action) => {
@@ -23,6 +25,30 @@ export const uiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 msg: null,
+            }
+
+            case types.uiSetMsgGreen:
+            return {
+                ...state,
+                msgGreen: action.payload,
+            }
+            
+        case types.uiRemoveMsgGreen:
+            return {
+                ...state,
+                msgGreen: null,
+            }
+
+            case types.uiSetMsgRed:
+            return {
+                ...state,
+                msgRed: action.payload,
+            }
+            
+        case types.uiRemoveMsgRed:
+            return {
+                ...state,
+                msgRed: null,
             }
         case types.uiStartLoading:
             return {

@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { BuyProduct } from '../components/Home/BuyProduct';
 
 import { Home } from '../components/Home/Home';
+import { Search } from '../components/Home/Search';
 import { SingleCategoryHome } from '../components/Home/SingleCategoryHome';
 import { SingleProduct } from '../components/Home/SingleProduct';
 import { LoginScreen } from '../components/Login';
@@ -22,6 +23,7 @@ export const AuthHomeRouter = () => {
             <Route path="singleProduct" element={ <SingleProduct /> } />
             <Route path="buyProduct" element={ <BuyProduct /> } />
             <Route path="singleCategory" element={ <SingleCategoryHome /> } />
+            <Route path="busqueda"   element={ <Search /> } />
 
         </Routes>
     </div>

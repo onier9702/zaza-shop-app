@@ -9,14 +9,13 @@ import { useForm } from '../hooks/useForm';
 
 import '../styles/auth/Login.css';
 import { startLogin } from '../actions/auth';
-import { removeError, setError } from '../actions/ui';
-// import { startLogin } from '../../actions/auth';
+import { removeMsgGreen, setMsgGreen } from '../actions/ui';
 
 export const LoginScreen = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {msg, loading} = useSelector( state => state.ui );
+  const {msgGreen, loading} = useSelector( state => state.ui );
 
   
   const [formValue, handleInputChange] = useForm( {
@@ -33,9 +32,9 @@ export const LoginScreen = () => {
       .then( resp => {
 
         if (resp.ok){
-          dispatch(setError(resp.message));
+          dispatch(setMsgGreen(resp.message));
           setTimeout(() => {
-            dispatch(removeError());
+            dispatch(removeMsgGreen());
             navigate('/pri/user');
           }, 1500);
 
@@ -59,7 +58,7 @@ export const LoginScreen = () => {
             >
       
                 {
-                  (msg) && <div className="alert-danger" > { msg } </div>
+                  (msgGreen) && <div style={{color: 'green'}}/*className="alert-danger"*/ > { msgGreen } </div>
                 }
 
                 <input  

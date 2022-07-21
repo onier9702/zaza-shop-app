@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { getUserProfileData, setLoginUser } from '../actions/auth';
 
 import '../styles/auth/UserProfile.css';
+import { MyOwnProducts } from './Home/MyOwnProducts';
 
 export const MyProfile = () => {
 
@@ -188,6 +189,10 @@ export const MyProfile = () => {
 
         </div>
       </div>
+      
+      <h1>Mis Productos</h1>
+      <MyOwnProducts />
+
     </div>
   )
 }

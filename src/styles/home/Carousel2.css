@@ -36,6 +36,9 @@
     /* width: 20%; */
     transition: 2s;
 }
+.cuadro-product{
+    margin-right: 20px;
+}
 .slide .cuadro-product{
     /* background-color: gray; */
     cursor: pointer;

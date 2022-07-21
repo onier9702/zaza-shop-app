@@ -10,6 +10,12 @@ export const CarouselProducts = () => {
 
   const { products } = useSelector(state => state.product);
 
+  let newArr = [];
+  for ( let i = products.length ; i > (products.length - 5); i--  ){
+    newArr.push(products[i-1]);
+  };
+  console.log(newArr);
+
 
   return (
     <div className="body" >
@@ -19,8 +25,8 @@ export const CarouselProducts = () => {
 
                 <div className="slide first"></div>
                 {
-                    products.map( ( prod, index ) => (
-                    <LastProducts key={prod.id} product={prod} index={index} />
+                    newArr.map( prod => (
+                    <LastProducts key={prod.id} product={prod} />
                     ) )
                 }
                 </div> 

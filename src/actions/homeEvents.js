@@ -91,11 +91,47 @@ const findActiveCategory = ( id= '', categories = [] ) => {
 const setActiveCategory = ( cate = {} ) => ({
     type: types.categoryActive,
     payload: cate
+});
+
+const startSearch = ( regex = '' ) => {
+
+    return async(dispatch) => {
+
+        try {
+            
+            const resp = await fetchNotToken(`search/products/${regex}`);
+            const data = await resp.json();
+            // console.log(data);
+
+            if ( data.results.length === 0 ) {
+                return {
+                    ok: false,
+                };
+            } else {
+                dispatch( setAllResultsSearched(data.results) );
+                return {
+                    ok: true,
+                }
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    };
+
+};
+
+const setAllResultsSearched = ( results = [] ) => ({
+    type: types.searchFoundedProd,
+    payload: results
 })
 
 export {
     startLoadAllCategories,
     startLoadAllProducts,
     findActiveProduct,
-    findActiveCategory
+    findActiveCategory,
+    startSearch,
+    setAllProducts
 }

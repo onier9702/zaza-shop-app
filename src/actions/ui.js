@@ -22,3 +22,23 @@ export const finishLoadingPage = () => ({
 
     type: types.uiFinishLoading,
 });
+
+export const setMsgGreen = ( err ) => ({
+
+    type: types.uiSetMsgGreen,
+    payload: err,
+});
+
+export const removeMsgGreen = () => ({
+    type: types.uiRemoveMsgGreen,
+});
+
+export const setMsgRed = ( err ) => ({
+
+    type: types.uiSetMsgRed,
+    payload: err,
+});
+
+export const removeMsgRed = () => ({
+    type: types.uiRemoveMsgRed,
+});

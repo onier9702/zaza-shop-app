@@ -1,0 +1,24 @@
+
+.divBusqueda{
+    padding: 18px;
+}
+.divBusqueda h1{
+    color: #2ec4b6;
+}
+.divBusqueda hr {
+    margin-bottom: 35px;
+}
+.divBusqueda .div-prodFounded{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80vw;
+}
+
+@media ( max-width: 430px) {
+    .divBusqueda .div-prodFounded{
+        flex-direction: column;
+        width: 92vw;
+
+    }
+}

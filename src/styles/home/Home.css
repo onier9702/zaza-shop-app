@@ -39,6 +39,25 @@
     position: absolute;
     right: 14px;
 }
+.home .form-search .div-search{
+    border: 0.8px solid grey;
+    display: inline-flex;
+    width: fit-content;
+}
+.home .form-search .div-search input{
+    border: none;
+    /* border-right: 1px solid grey; */
+    /* border: 0px 1px 0px 0px; */
+}
+.home .form-search .div-search i{
+    background-color: rgb(8, 180, 224);
+    margin: 0px;
+    padding: 0px 0px 0px 7px;
+}
+.home .form-search .div-search i:hover{
+    background-color: rgb(5, 92, 113);
+    
+}
 
 /* Show Categories below to Logo and search */
 .show-categories{

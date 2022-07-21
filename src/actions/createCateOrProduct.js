@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
-import { fetchWithToken } from "../helpers/fetch";
+import { fetchUploadImg, fetchWithToken } from "../helpers/fetch";
 import { types } from "../types/types";
+import { setAllProducts } from "./homeEvents";
 
 const startCreateCategory = ( name = {}, categories = [] ) => {
 
@@ -40,7 +41,7 @@ const startCreateProduct = ( form = {}, products = [] ) => {
 
             const resp = await fetchWithToken('products/new', form, 'POST');
             const data = await resp.json();
-
+            console.log('New Product');
             console.log(data);
 
             if ( data.msg ){
@@ -62,6 +63,40 @@ const startCreateProduct = ( form = {}, products = [] ) => {
     };
 };
 
+const startUploadImg = ( id = '', file, products = [] ) => {
+
+    return async(dispatch) => {
+
+        try {
+            const resp = await fetchUploadImg(`upload/products/${id}`, file);
+            const data = await resp.json();
+            // console.log(data.model);
+
+            if (data.model){
+                const newArr = [];
+                products.map( p => newArr.push(p));
+                const realArr = newArr.filter( prod => prod.id !== data.model.id);
+                realArr.push(data.model);
+
+                dispatch( setAllProducts(realArr) );
+                return {
+                    ok: true
+                };
+            } else {
+                return {
+                    ok: false,
+                    msg: data.msg
+                }
+            }
+            
+        } catch (error) {
+            console.log(error)
+        }
+
+    };
+
+}
+
 const setNewProd = (products = []) => ({
     type: types.productNewProd,
     payload: products
@@ -76,5 +111,6 @@ const setNewCate = (categories = []) => ({
 
 export {
     startCreateCategory,
-    startCreateProduct
+    startCreateProduct,
+    startUploadImg
 }

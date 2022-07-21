@@ -20,6 +20,7 @@
     border: 0.7px solid grey;
     margin-bottom: 20px;
 }
+
 .div-createProduct form input:hover{
     border: none;
     border-bottom: 0.8px solid grey;
@@ -45,4 +46,18 @@
 
 .div-createProduct form button:hover , .div-createProduct form button:focus{
     background-color: #f55c35;
+}
+
+/* Upload Img */
+
+.div-createProduct .btnImg{
+    border: none;
+    background-color: orangered;
+    margin-bottom: 30px;
+    width: 130px;
+}
+.div-createProduct .img{
+    display: none;
+    /* border: none;
+    background-color: #90e0ef; */
 }

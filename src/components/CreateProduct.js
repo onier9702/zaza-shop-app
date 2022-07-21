@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 import '../styles/CreateProduct.css';
-import { removeError, setError } from '../actions/ui';
+import { removeMsgGreen, removeMsgRed, setMsgGreen, setMsgRed } from '../actions/ui';
 import { useForm } from '../hooks/useForm';
 import { AllCateSelections } from './AllCateSelections';
 import { startCreateProduct } from '../actions/createCateOrProduct' 
@@ -14,7 +14,7 @@ export const CreateProduct = () => {
   const dispatch = useDispatch();
   const { categories } = useSelector( state => state.category);
   const { products } = useSelector( state => state.product);
-  const {msg, loading} = useSelector( state => state.ui);
+  const {msgGreen, msgRed, loading} = useSelector( state => state.ui);
 
   const [formValue, handleInputChange, reset] = useForm( {
     name: '',
@@ -36,15 +36,15 @@ export const CreateProduct = () => {
     const formValid = () => {
       
       if ( name.trim().length < 2 ){
-        dispatch( setError('Debe establecer un nombre correctamente '));
+        dispatch( setMsgRed('Debe establecer un nombre correctamente '));
         return false;
 
       }else if ( precio.trim().length === 0 ){
-          dispatch( setError('Debe establecer un Precio'));
+          dispatch( setMsgRed('Debe establecer un Precio'));
           return false;
 
       } else if ( Number(amount) < 1 ) {
-        dispatch( setError('La cantidad que existe del producto es incorrecta '));
+        dispatch( setMsgRed('La cantidad que existe del producto es incorrecta '));
         return false;
       
       } else {
@@ -60,20 +60,20 @@ export const CreateProduct = () => {
         category,
         amount
       };
-
+      if (category.length === 0){
+        data.category = categories[0].id;
+      }
       if (description) {
           data.description = description;
       };
 
-      console.log(data);
-
       dispatch( startCreateProduct( data, products) )
         .then( resp => {
           if (resp){
-            dispatch( setError('El Producto fue Creado'));
+            dispatch( setMsgGreen('El Producto fue Creado'));
             reset();
             setTimeout(() => {
-              dispatch(removeError());
+              dispatch(removeMsgGreen());
             }, 1800);
           }
         })
@@ -81,11 +81,12 @@ export const CreateProduct = () => {
 
     } else {
       setTimeout(() => {
-        dispatch( removeError());
+        dispatch( removeMsgRed());
       }, 1900);
     }
 
   };
+  
 
   return (
     <div className="div-createProduct">
@@ -96,7 +97,10 @@ export const CreateProduct = () => {
                 type="submit"
         >
           {
-            (msg) && <h5 style={{margin:20, color:'blue'}}>{msg}</h5>
+              (msgGreen) && <div style={{color: 'green'}} /*className="alert-danger"*/ > { msgGreen } </div>
+          }
+          {
+              (msgRed) && <div style={{color: 'red'}} /*className="alert-danger"*/ > { msgRed } </div>
           }
           <h6>Nombre</h6>
           <input

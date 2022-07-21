@@ -15,6 +15,9 @@
 .div-profile {
     width: 100%;
 }
+.div-profile h1{
+    margin: 30px 0px 8px 20px;
+}
 .div-color {
     background-color: #a2d2ff;
     border-radius: 20px;
