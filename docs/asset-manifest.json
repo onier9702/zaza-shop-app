@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.4bec2d7d.css",
-    "main.js": "/static/js/main.6679eaee.js",
-    "index.html": "/index.html",
-    "main.4bec2d7d.css.map": "/static/css/main.4bec2d7d.css.map",
-    "main.6679eaee.js.map": "/static/js/main.6679eaee.js.map"
+    "main.css": "/zaza-shop-app/static/css/main.4bec2d7d.css",
+    "main.js": "/zaza-shop-app/static/js/main.452eea4b.js",
+    "index.html": "/zaza-shop-app/index.html",
+    "main.4bec2d7d.css.map": "/zaza-shop-app/static/css/main.4bec2d7d.css.map",
+    "main.452eea4b.js.map": "/zaza-shop-app/static/js/main.452eea4b.js.map"
   },
   "entrypoints": [
     "static/css/main.4bec2d7d.css",
-    "static/js/main.6679eaee.js"
+    "static/js/main.452eea4b.js"
   ]
 }
