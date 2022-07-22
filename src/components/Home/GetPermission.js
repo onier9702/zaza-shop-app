@@ -33,7 +33,7 @@ export const GetPermission = () => {
         </div>
 
         <div className="admin">
-            <img src={process.env.PUBLIC_URL + '/MyPhoto.jpg'} alt="admin" />
+            <img src={window.location.origin + '/assets/MyPhoto.jpg'} alt="admin" />
             <h3 >Desarrollador Administrador de la App</h3>
         </div>
 
