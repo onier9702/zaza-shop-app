@@ -1,5 +1,6 @@
 import { fetchWithToken } from "../helpers/fetch";
 import { types } from "../types/types";
+import { setAllProducts } from "./homeEvents";
 import { finishLoadingPage, startLoadingPage } from "./ui";
 
 
@@ -63,8 +64,48 @@ const startUpdateProduct = (id, form) => {
     };
 };
 
+const startDeleteProduct = (id = '', products = []) => {
+
+    return async(dispatch) => {
+
+        try {
+
+            dispatch( startLoadingPage());
+            
+            const resp = await fetchWithToken(`products/${id}`, undefined, 'DELETE');
+            const data = await resp.json();
+
+            if ( data.msg ){
+                return {
+                    ok: false,
+                    msg: data.msg
+                };
+            } else {
+                let arrProducts = [];
+                products.map( p => arrProducts.push(p));
+                let realProducts = arrProducts.filter( prod => prod.id !== id);
+                dispatch( setAllProducts(realProducts) );
+                
+                return {
+                    ok: true
+                };
+            };
+     
+
+        } catch (error) {
+            console.log(error);
+            console.log('Catch error in startDeleteProduct function');
+            dispatch(finishLoadingPage());
+        }
+
+    };
+};
+
+
+
 export {
     findActiveUserProd,
     setAllOwnProducts,
-    startUpdateProduct
+    startUpdateProduct,
+    startDeleteProduct
 }

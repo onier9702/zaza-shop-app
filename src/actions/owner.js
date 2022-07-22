@@ -12,7 +12,6 @@ const startLoadAllSellers = () => {
 
             const resp = await fetchNotToken('users/sellers');
             const data = await resp.json();
-            console.log(data);
 
             dispatch( setAllSellers(data.sellers) );
 

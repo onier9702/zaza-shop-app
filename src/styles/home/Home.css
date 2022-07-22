@@ -36,14 +36,14 @@
 }
 
 .home .form-search {
-    width: 150px;
+    width: fit-content;
     position: absolute;
     right: 14px;
 }
 .home .form-search .div-search{
     border: 0.8px solid grey;
     display: inline-flex;
-    width: fit-content;
+    width: 200px;
 }
 .home .form-search .div-search input{
     border: none;

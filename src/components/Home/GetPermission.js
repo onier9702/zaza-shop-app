@@ -48,7 +48,7 @@ export const GetPermission = () => {
             </li>
 
             <li>
-                <p>  Contactar con Administrador. </p>
+                <p>  Contactar con Administrador al Whatsapp para obtener Permiso Vendedor </p>
             </li>
         </ol>
 

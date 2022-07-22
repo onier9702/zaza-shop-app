@@ -14,7 +14,6 @@ export const CarouselProducts = () => {
   for ( let i = products.length ; i > (products.length - 7); i--  ){
     newArr.push(products[i-1]);
   };
-  console.log(newArr);
 
 
   return (
