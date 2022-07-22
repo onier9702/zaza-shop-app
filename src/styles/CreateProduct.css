@@ -67,3 +67,9 @@
     /* border: none;
     background-color: #90e0ef; */
 }
+
+@media (max-width: 530px){
+    .div-createProduct h1 {
+        font-size: 22px;
+    }
+}

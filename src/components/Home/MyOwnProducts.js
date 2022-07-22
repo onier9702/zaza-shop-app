@@ -39,7 +39,12 @@ export const MyOwnProducts = () => {
   };
 
   const handleDelete = () => {
-    dispatch( startDeleteProduct(id, products) )
+    let realId = id;
+    if (id.length === 0){
+      realId = userAllproducts[0].id;
+    };
+    // console.log(realId);
+    dispatch( startDeleteProduct(realId, products) )
       .then( resp => {
         if (resp.ok){
           dispatch( setMsgGreen('Producto Borrado') );

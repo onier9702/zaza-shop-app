@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { findActiveProduct } from '../../actions/homeEvents';
@@ -36,7 +36,7 @@ export const LastProducts = ({product}) => {
         <div className="slide">
           <div onClick={handleSeeProductHome} className="cuadro-product">
             <img  src={product.img} alt="img" id={product.id} />
-            <span className="color-precio" >{`Precio ${product.precio}`}</span>
+            <span className="color-precio" >{product.precio}</span>
 
           </div>
         </div>
