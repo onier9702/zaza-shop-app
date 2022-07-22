@@ -28,7 +28,6 @@ export const MyOwnProducts = () => {
       <div className="div-MyProducts">
 
         <h1>Mis Productos</h1>
-        <hr />
         {
             arrOwnProds.map( pro => (
                 <AllOwnProds key={pro.id} product={pro} />

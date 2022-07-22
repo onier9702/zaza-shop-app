@@ -2,7 +2,7 @@
 .navigation-div{
     background-color: #ccdbfd;
     margin-bottom: 10px;
-    
+    transition: 0.8s;
 }
 
 i{
@@ -23,6 +23,7 @@ i:hover{
     flex-direction: column;
     justify-content: start;
     width: 100vw;
+    transition: 0.8s;
 
 }
 
@@ -33,8 +34,7 @@ i:hover{
     flex-direction: column;
     list-style-type: none;
     text-decoration: none;
-    width: 100%;
-    
+    width: 100%;    
 }
 
 .navigation ul li {

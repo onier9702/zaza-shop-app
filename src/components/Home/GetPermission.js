@@ -33,7 +33,7 @@ export const GetPermission = () => {
         </div>
 
         <div className="admin">
-            <img key="myPhoto" src={process.env.PUBLIC_URL + "/assets/MyPhoto.jpg"} alt="admin" />
+            <img src={'https://res.cloudinary.com/reino/image/upload/v1658493480/zv1zf9hmgbp1hs8hpbye.jpg'} alt="admin" />
             <h3 >Desarrollador Administrador de la App</h3>
         </div>
 
