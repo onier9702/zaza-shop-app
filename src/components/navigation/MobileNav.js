@@ -30,6 +30,10 @@ export const MobileNav = ({isMob,closeMenu}) => {
                 <Link  onClick={() => (isMob) && closeMenu() }  to="/pub/permission" className="link" >Obtener Permiso Venta</Link>
             </li>
 
+            <li>
+                <Link  onClick={() => (isMob) && closeMenu() }  to="/pub/howItWorks" className="link" >Como Funciona</Link>
+            </li>
+
             
         </ul>
     </nav>

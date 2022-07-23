@@ -18,6 +18,9 @@
 .single-product .info-product > *{
     margin: 6px;
 }
-.single-product .info-product img{
+.single-product .info-product .divImages {
+    display: flex;
+}
+.single-product .info-product .divImages img{
     width: 25vw;
 }

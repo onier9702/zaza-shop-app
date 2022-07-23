@@ -24,7 +24,7 @@ export const CarouselProducts = () => {
 
                 <div className="slide first"></div>
                 {
-                    newArr.map( prod => (
+                    (newArr[6]) && newArr.map( prod => (
                     <LastProducts key={prod.id} product={prod} />
                     ) )
                 }

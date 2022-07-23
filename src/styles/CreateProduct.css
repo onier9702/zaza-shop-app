@@ -4,7 +4,13 @@
     display: flex;
     justify-content: space-between;
 }
-.header #icon-cam{
+.header .Upload-Imgs{
+    align-items: center;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.header .Upload-Imgs #icon-cam{
     box-shadow: 2px rgb(191, 109, 109);
     color: red;
 }

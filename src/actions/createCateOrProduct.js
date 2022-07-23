@@ -71,10 +71,10 @@ const startUploadImg = ( id = '', collection = '', file, products = [] ) => {
         try {
             const resp = await fetchUploadImg(`upload/${collection}/${id}`, file);
             const data = await resp.json();
-            console.log(data);
+            console.log(data); 
 
             if (data.model){
-                if ( products.length > 0){
+                if ( products.length > 0){ 
                     const newArr = [];
                     products.map( p => newArr.push(p));
                     const realArr = newArr.filter( prod => prod.id !== data.model.id);

@@ -35,7 +35,7 @@ export const LastProducts = ({product}) => {
     <>
         <div className="slide">
           <div onClick={handleSeeProductHome} className="cuadro-product">
-            <img  src={product.img} alt="img" id={product.id} />
+            <img  src={product.img1} alt="img" id={product.id} />
             <span className="color-precio" >{product.precio}</span>
 
           </div>

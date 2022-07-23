@@ -42,7 +42,7 @@ export const ProdsBelongCate = ({product}) => {
 
           <div className="img">
               {
-                  (product.img) && <img  src={product.img} alt="img" id={product.id} />
+                  (product.img1) && <img  src={product.img1} alt="img" id={product.id} />
               }
           </div>
           <div className="info-prod">

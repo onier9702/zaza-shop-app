@@ -96,24 +96,33 @@ export const EditProduct = () => {
         inputImg.current.click();
     };
     const handleImgChange = (e) => {
-        const file = e.target.files[0];
+        const file = e.target.files;
+        // console.log(file);
+        // let arrFiles = [];
+        // for ( let i=0; i < file.length; i++){
+        //     if ( i < 3){
+        //         arrFiles.push(file[i]);
+        //     };
+        // };
+        // console.log(arrFiles);
+
         if (file) {
-          dispatch( startUploadImg(id, 'products',file, products) )
-            .then( resp => {
-                if (resp.ok){
-                    dispatch(setMsgGreen('Imagen Posteada Correctamente'));
-                    setTimeout(() => {
-                        dispatch(removeMsgGreen());
-                    }, 1700);
-                    navigate(-1);
-                } else {
-                    dispatch( setMsgRed(resp.msg));
-                    setTimeout(() => {
-                        dispatch(removeMsgRed());
-                    }, 1700);
-                }
-            })
-            .catch( err => console.log(err));
+            dispatch( startUploadImg(id, 'products',file, products) )
+              .then( resp => {
+                  if (resp.ok){
+                      dispatch(setMsgGreen('Posteo Exitoso'));
+                      setTimeout(() => {
+                          dispatch(removeMsgGreen());
+                      }, 1700);
+                      navigate(-1);
+                  } else {
+                      dispatch( setMsgRed(resp.msg));
+                      setTimeout(() => {
+                          dispatch(removeMsgRed());
+                      }, 1700);
+                  }
+              })
+              .catch( err => console.log(err));
         }; 
     };
 
@@ -122,7 +131,10 @@ export const EditProduct = () => {
 
         <div className="header">
             <h1>Editar/Actualizar Producto</h1>
-            <i className="bi bi-camera-fill" onClick={handleImgClick} id="icon-cam"></i>
+            <div className="Upload-Imgs">
+                <i className="bi bi-camera-fill" onClick={handleImgClick} id="icon-cam"></i>
+                <span>No mas de 3 Fotos</span>
+            </div>
         </div>
 
 
@@ -190,7 +202,7 @@ export const EditProduct = () => {
                 onClick={handleImgClick}
         >Subir Imagen</button> */}
 
-        <input type="file"
+        <input type="file" multiple
                ref={inputImg}
                onChange={handleImgChange} 
             //    name="file"

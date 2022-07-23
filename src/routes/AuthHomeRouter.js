@@ -9,6 +9,7 @@ import { Search } from '../components/Home/Search';
 import { SingleCategoryHome } from '../components/Home/SingleCategoryHome';
 import { SingleProduct } from '../components/Home/SingleProduct';
 import { LoginScreen } from '../components/Login';
+import { HowItWorks } from '../components/navigation/HowItWorks';
 import { RegisterScreen } from '../components/Register';
 
 export const AuthHomeRouter = () => {
@@ -22,6 +23,7 @@ export const AuthHomeRouter = () => {
             <Route path="login" element={ <LoginScreen /> } />
             <Route path="register" element={ <RegisterScreen /> } />
             <Route path="permission" element={ <GetPermission /> } />
+            <Route path="howItWorks" element={ <HowItWorks /> } />
             
             <Route path="singleProduct" element={ <SingleProduct /> } />
             <Route path="buyProduct" element={ <BuyProduct /> } />

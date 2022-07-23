@@ -1,6 +1,7 @@
 
 // const baseUrl = process.env.REACT_APP_API_URL; // put this on production
 const baseUrl = 'https://zaza-shop.herokuapp.com/api';
+// const baseUrl = 'https://localhost:3000/api';
 
 const fetchNotToken = ( endpoint, data, method = 'GET' ) => {
 
@@ -55,9 +56,17 @@ const fetchUploadImg = ( endpoint, file ) => {
 
     const token = localStorage.getItem('token') || '';
     // console.log(token);
-
     const formData = new FormData();
-    formData.append('file', file);
+
+    // console.log(file);
+    for ( let i = 0; i < 3; i++){
+        if( file[i] ){
+            formData.append(`file${i+1}`, file[i]); 
+        }
+    };
+
+    // formData.append('file', file);
+    // console.log(formData);
 
     return fetch( url, {
             method: "POST",

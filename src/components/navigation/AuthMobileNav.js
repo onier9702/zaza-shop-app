@@ -26,11 +26,15 @@ export const AuthMobileNav = ({isMob,closeMenu}) => {
             </li>
 
             <li>
-                <Link  onClick={() => (isMob) && closeMenu() }  to="/pri/user" className="link" >My Perfil</Link>
+                <Link  onClick={() => (isMob) && closeMenu() }  to="/pri/user" className="link" >Mi Perfil</Link>
             </li>
 
             <li>
                 <Link  onClick={() => (isMob) && closeMenu() }  to="/pri/permission" className="link" >Obtener Permiso Venta</Link>
+            </li>
+
+            <li>
+                <Link  onClick={() => (isMob) && closeMenu() }  to="/pri/howItWorks" className="link" >Como Funciona</Link>
             </li>
     
             <li>
