@@ -16,7 +16,6 @@ export const SingleCategoryHome = () => {
 
   useEffect(() => {
     if ( !name ){
-        console.log('Ative Category empty');
         ( getTokenFromLocalStorage() ) ? navigate('/pri/') : navigate('/pub/');
     }
     
@@ -30,7 +29,6 @@ export const SingleCategoryHome = () => {
     };
 
   };
-
 
   const handleReturn = () => {
       navigate(-1);

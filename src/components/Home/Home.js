@@ -11,6 +11,7 @@ import '../../styles/home/Home.css';
 import { Logo } from '../Logo';
 import { AllCateg } from './AllCateg';
 import { CarouselProducts } from './CarouselProducts';
+import { LikedProducts } from './LikedProducts';
 import { Search } from './Search';
 
 export const Home = () => {
@@ -35,7 +36,6 @@ export const Home = () => {
     dispatch( startSearch(terminus) )
       .then( resp => {
         if( resp.ok ){
-          console.log('vgvjjh');
           ( getTokenFromLocalStorage() ) ? navigate('/pri/busqueda') : navigate('/pub/busqueda');
         }
       })
@@ -87,6 +87,11 @@ export const Home = () => {
       </div>
 
       <CarouselProducts />
+
+      <h4 style={{marginBottom: 20,paddingLeft: 25, paddingTop: 40}}>Te Puede Gustar</h4>
+      <div className="div-like">
+        <LikedProducts />
+      </div>
 
     </div>
   )

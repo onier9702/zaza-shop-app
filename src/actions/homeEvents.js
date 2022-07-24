@@ -1,4 +1,5 @@
 
+import Swal from "sweetalert2";
 import { fetchNotToken } from "../helpers/fetch";
 import { types } from "../types/types";
 
@@ -125,7 +126,36 @@ const startSearch = ( regex = '' ) => {
 const setAllResultsSearched = ( results = [] ) => ({
     type: types.searchFoundedProd,
     payload: results
-})
+});
+
+const startFetchLikedProducts = (limit , since ) => {
+
+    return async(dispatch) => {
+
+        const resp = await fetchNotToken(`products?limit=${limit}&since=${since}`);
+        const data = await resp.json();
+
+        if ( data.msg){
+            Swal.fire('Error', data.msg, 'error');
+            return {
+                ok: false,
+            }
+        } else {
+            return {
+                ok: true,
+                total: data.total,
+                products: data.products
+            }
+        }
+
+    };
+
+};
+
+const setLikedProducts = (products = []) => ({
+    type: types.likeAllProducts,
+    payload: products
+}) 
 
 export {
     startLoadAllCategories,
@@ -133,5 +163,7 @@ export {
     findActiveProduct,
     findActiveCategory,
     startSearch,
-    setAllProducts
+    setAllProducts,
+    startFetchLikedProducts,
+    setLikedProducts
 }

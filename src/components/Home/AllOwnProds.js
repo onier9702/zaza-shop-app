@@ -38,7 +38,7 @@ export const AllOwnProds = ({product}) => {
             </div>  
             <i onClick={handleEditProduct} className="bi bi-pencil-square" id={product.id}></i>
 
-        </div>
+        </div> 
 
     </div>
 

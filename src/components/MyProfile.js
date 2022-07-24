@@ -19,7 +19,7 @@ export const MyProfile = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [fullForm, setFullForm] = useState(false);
   const { msgGreen, msgRed } = useSelector( state => state.ui);
-  const {name, role, email, mobile, tarjeta_CUP, tarjeta_USD, address, uid, img} = useSelector( state => state.auth);
+  const {name, role, email, mobile, tarjeta_CUP, tarjeta_USD, whatsapp, address, uid, img} = useSelector( state => state.auth);
 
   // All Own Products
   const { products } = useSelector(state => state.product);
@@ -53,7 +53,7 @@ export const MyProfile = () => {
     
     useEffect(() => {
       
-      let userVariables = [name, role, email, mobile, tarjeta_CUP, tarjeta_USD, address];
+      let userVariables = [name, role, email, mobile, tarjeta_CUP, tarjeta_USD, whatsapp, address];
       
       for ( let variab of userVariables ) {
         if ( !variab ){
@@ -62,7 +62,7 @@ export const MyProfile = () => {
         }
       };  
     
-    }, [setFullForm, name, uid, role, email, mobile, img, tarjeta_CUP, tarjeta_USD, address]);
+    }, [setFullForm, name, uid, role, email, mobile, img, tarjeta_CUP, tarjeta_USD, whatsapp, address]);
   
 
 
@@ -237,6 +237,19 @@ export const MyProfile = () => {
               <div className="div-h5-p">
                 <h5>Direccion:</h5>
                 <p>{address}</p>
+              </div>
+            </li>
+
+            <li>
+              <div className="div-icon" >
+                {
+                  <i style={(whatsapp) ? {color: 'green'} : {color: ''}} className="bi bi-check2-all"></i>
+                }
+              </div>
+
+              <div className="div-h5-p">
+                <h5>Whatsapp:</h5>
+                <p>{whatsapp}</p>
               </div>
             </li>
 

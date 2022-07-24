@@ -22,10 +22,11 @@ export const EditUserAccount = () => {
         mobile: '',
         tarjeta: '',
         tipotarjeta: '',
-        address: ''
+        address: '',
+        whatsapp: ''
     } )
 
-    const {  mobile, password, password2, tarjeta, address, tipotarjeta } = formValue;
+    const {  mobile, password, password2, tarjeta, address, whatsapp, tipotarjeta } = formValue;
     
     const edit = (e) => {
         e.preventDefault();
@@ -52,7 +53,13 @@ export const EditUserAccount = () => {
                     return false;
                 };
             };
-            if ( !mobile && !password && !password2 && !tarjeta && !address ) {
+            if (whatsapp){
+                if ( !whatsapp.includes('https://wa.me') ){
+                    dispatch(setMsgRed('El enlace Whatsapp tiene un formato incorrecto, intente con este formato https://wa.me/message/XXXXXXXXXXXXXX'));
+                    return false;
+                };
+            };
+            if ( !mobile && !password && !password2 && !tarjeta && !address && !whatsapp ) {
                 dispatch( setMsgRed('Debe de actualizar algun campo antes de enviar') );
                 return false;
             }
@@ -79,6 +86,9 @@ export const EditUserAccount = () => {
             };
             if (address) {
                 editedData.address = address;
+            };
+            if (whatsapp) {
+                editedData.whatsapp = whatsapp;
             };
         
             // console.log(editedData);
@@ -121,7 +131,7 @@ export const EditUserAccount = () => {
                     (msgGreen) && <div style={{color: 'green'}} /*className="alert-danger"*/ > { msgGreen } </div>
                 }
                 {
-                    (msgRed) && <div style={{color: 'red'}} /*className="alert-danger"*/ > { msgRed } </div>
+                    (msgRed) && <div style={{color: 'red', marginBottom: 20}} /*className="alert-danger"*/ > { msgRed } </div>
                 }
                 <h6>Contraseña</h6>
                 <input
@@ -173,6 +183,17 @@ export const EditUserAccount = () => {
                     value={address}
                     onChange={handleInputChange}
                 />
+
+                <h6>Enlace Directo Whatsapp</h6>
+                <input
+                    type="text"
+                    name="whatsapp"
+                    placeholder="https://wa.me/message/UYJLE22XHH7UP1"
+                    autoComplete="off"
+                    value={whatsapp}
+                    onChange={handleInputChange}
+                />
+
                 <button
                     type="submit"
                     className="btn-login"

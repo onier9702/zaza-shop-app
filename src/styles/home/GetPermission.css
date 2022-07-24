@@ -23,9 +23,10 @@
 }
 
 .getPermission .divIcon-whatsapp #icon-whatsapp{
-    /* background: green; */
     color: white;
     font-size: 2.2rem;
+    margin: 0px;
+    padding: 0px;
 }
 
 .getPermission h1{

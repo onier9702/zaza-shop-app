@@ -8,6 +8,7 @@ import { categoryReducer } from '../reducers/categoryReducer';
 import { authProprietor } from '../reducers/proprietor';
 import { searchReducer } from '../reducers/searchReducer';
 import { userProdReducer } from '../reducers/userProdReducer';
+import { likeProdReducer } from '../reducers/likeReducer';
 
 export default configureStore({
 
@@ -19,6 +20,7 @@ export default configureStore({
     owner: authProprietor,
     search: searchReducer,
     userProd: userProdReducer,
+    like: likeProdReducer,
   },
   
 })

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import Swal from 'sweetalert2';
 
@@ -15,17 +15,41 @@ export const BuyProduct = () => {
     const { activeProduct } = useSelector( state => state.product);
     const { activeSeller } = useSelector( state => state.owner);
 
-    const { name, address, tarjeta_CUP, tarjeta_USD, img, mobile } = activeSeller;
+    const { name, whatsapp, address, tarjeta_CUP, tarjeta_USD, img, mobile } = activeSeller;
 
     if ( !activeProduct.name ) {
         console.log('Not active Product');
         ( getTokenFromLocalStorage() ) ? navigate('/pri/') : navigate('/pub/');
     };
+
+    const ancor = useRef(null);
+    const click = () => {
+        ancor.current.click();
+    };
+
+    const handleChange = (e) => {
+
+    };
       
 
   return (
     <div className="div-buyProduct">
-        <h3>Propietario</h3>
+
+        <div className="header">
+            <h2>Propietario</h2>
+            {
+                (whatsapp) && 
+                                <div className="divIcon-whatsapp">
+                                    <i className="bi bi-whatsapp" id="icon-whatsapp" onClick={click}></i> 
+                                    <a  href={whatsapp} 
+                                        target="_blank" 
+                                        onChange={handleChange}
+                                        ref={ancor} 
+                                        style={{display: 'none'}} 
+                                    />
+                                </div>
+        }
+        </div>
 
         <div className="info-propriety">
 

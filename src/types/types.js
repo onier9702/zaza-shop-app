@@ -30,6 +30,8 @@ export const types = {
     searchFoundedProd: '[search] Founded Products',
 
     userAllProducts: '[user] All User Products',
-    userActiveProduct: '[user] Active User Product'
+    userActiveProduct: '[user] Active User Product',
+
+    likeAllProducts: '[like] Alse May like you',
 
 };

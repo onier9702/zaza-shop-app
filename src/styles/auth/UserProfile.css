@@ -25,13 +25,16 @@
     padding: 20px;
 }
 .div-color .header{
+    align-items: center;
     display: inline-flex;
     justify-content: space-between;
+    padding: 0px 10px 0px 0px;
     width: 100%;
 }
 .div-color .isFullForm{
     display: flex;
     justify-content: space-between;
+    padding: 0px 10px 0px 0px;
     /* margin-bottom: 10px; */
     /* padding: 10px; */
 }
@@ -122,10 +125,29 @@
     width: 100%;
 }
 
+@media (max-width: 680px){
+    .div-user-info ul{
+        width: fit-content;
+    }
+    .div-user-info ul li{
+        width: fit-content;
+    }
+    .div-user-info ul li .div-icon{
+        margin-right: 5px;
+        width: 30px;
+    }
+    .div-user-info ul li .div-h5-p h4, .div-user-info ul li .div-h5-p h5 {
+        font-size: 14px;
+    }
+    .div-user-info ul li .div-h5-p p{
+        font-size: 12px;
+    }
+}
+
 @media (max-width: 530px) {
     .div-color {
-        margin: 14px;
-        padding: 14px;
+        margin: 20px 4px 15px 4px;
+        padding: 15px 4px 15px 4px;
     }
     .div-img-user{
         justify-content: center;
@@ -143,13 +165,13 @@
         margin: 0px;
     }
     .div-user-info ul li .div-icon{
-        margin-right: 15px;
-        width: 30px;
+        margin-right: 3px;
+        /* width: 30px; */
     }
     .div-user-info ul li .div-h5-p h4, .div-user-info ul li .div-h5-p h5 {
-        font-size: 18px;
+        font-size: 12px;
     }
     .div-user-info ul li .div-h5-p p{
-        font-size: 16px;
+        font-size: 10px;
     }
 }
