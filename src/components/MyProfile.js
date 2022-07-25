@@ -102,7 +102,7 @@ export const MyProfile = () => {
   
   
       } else {
-        Swal.fire('Nota', 'Debe subir fotos de no mas de 2 MB', 'warning');
+        Swal.fire('Nota', 'Debe subir foto de un tamaño menor, puede usar WhatsApp para eso', 'warning');
       };
 
     };

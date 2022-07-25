@@ -105,13 +105,14 @@ export const EditProduct = () => {
 
                 if ( file[i]){
 
-                    if ( file[i].size > 200000 ){
-                        return Swal.fire('Nota', 'Debe subir fotos de no mas de 2 MB', 'warning');
+                    if ( file[i].size > 170000 ){
+                        return Swal.fire('Nota', 'Debe subir fotos de un tamaño menor, puede usar Whatsapp para reducirla', 'warning');
                     };
                 } else break;
 
             };
-            // console.log('All Photos are fulfill');
+            console.log('All Photos are fulfill');
+            console.log(file);
             dispatch( startUploadImg(id, 'products',file, products) )
               .then( resp => {
                   if (resp.ok){
