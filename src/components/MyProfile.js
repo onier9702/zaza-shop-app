@@ -82,7 +82,7 @@ export const MyProfile = () => {
     // console.log(file);
     if ( file ){
 
-      if ( file[0].size < 100000){
+      if ( file[0].size < 200000){
         // console.log('Yes Picture fulfill with size');
         dispatch(startUploadImg(uid, 'users' ,file, []))
         .then( resp => {
@@ -102,7 +102,7 @@ export const MyProfile = () => {
   
   
       } else {
-        Swal.fire('Nota', 'Debe subir fotos de no mas de 1 MB', 'warning');
+        Swal.fire('Nota', 'Debe subir fotos de no mas de 2 MB', 'warning');
       };
 
     };

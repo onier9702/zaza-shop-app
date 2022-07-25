@@ -105,8 +105,8 @@ export const EditProduct = () => {
 
                 if ( file[i]){
 
-                    if ( file[i].size > 100000 ){
-                        return Swal.fire('Nota', 'Debe subir fotos de no mas de 1 MB', 'warning');
+                    if ( file[i].size > 200000 ){
+                        return Swal.fire('Nota', 'Debe subir fotos de no mas de 2 MB', 'warning');
                     };
                 } else break;
 
