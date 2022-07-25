@@ -30,6 +30,14 @@ export const AuthMobileNav = ({isMob,closeMenu}) => {
             </li>
 
             <li>
+                <Link  onClick={() => (isMob) && closeMenu() } to="/pri/newProduct" className="link" >Vender Algo</Link>
+            </li>
+
+            <li>
+                <Link  onClick={() => (isMob) && closeMenu() } to="/pri/newCategory" className="link" >Crear Categoria</Link>
+            </li>
+
+            <li>
                 <Link  onClick={() => (isMob) && closeMenu() }  to="/pri/permission" className="link" >Obtener Permiso Venta</Link>
             </li>
 
@@ -37,14 +45,7 @@ export const AuthMobileNav = ({isMob,closeMenu}) => {
                 <Link  onClick={() => (isMob) && closeMenu() }  to="/pri/howItWorks" className="link" >Como Funciona</Link>
             </li>
     
-            <li>
-                <Link  onClick={() => (isMob) && closeMenu() } to="/pri/newCategory" className="link" >Crear Categoria</Link>
-            </li>
 
-            <li>
-                <Link  onClick={() => (isMob) && closeMenu() } to="/pri/newProduct" className="link" >Crear Producto</Link>
-            </li>
-    
             <li >
                 <button
                     type="button"

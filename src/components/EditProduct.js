@@ -97,14 +97,6 @@ export const EditProduct = () => {
     };
     const handleImgChange = (e) => {
         const file = e.target.files;
-        // console.log(file);
-        // let arrFiles = [];
-        // for ( let i=0; i < file.length; i++){
-        //     if ( i < 3){
-        //         arrFiles.push(file[i]);
-        //     };
-        // };
-        // console.log(arrFiles);
 
         if (file) {
             dispatch( startUploadImg(id, 'products',file, products) )

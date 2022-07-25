@@ -61,7 +61,7 @@ const fetchUploadImg = ( endpoint, file ) => {
     // console.log(file);
     for ( let i = 0; i < 3; i++){
         if( file[i] ){
-            formData.append(`file${i+1}`, file[i]); 
+            formData.append(`file${i+1}`, file[i]);
         }
     };
 

@@ -88,7 +88,7 @@ export const Home = () => {
 
       <CarouselProducts />
 
-      <h4 style={{marginBottom: 20,paddingLeft: 25, paddingTop: 40}}>Te Puede Gustar</h4>
+      <h4 style={{marginBottom: 5,paddingLeft: 25, paddingTop: 15}}>Te Puede Gustar</h4>
       <div className="div-like">
         <LikedProducts />
       </div>

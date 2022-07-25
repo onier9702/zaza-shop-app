@@ -78,7 +78,7 @@ export const MyProfile = () => {
   };
 
   const handleImgChange = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files; 
     if (file){
       dispatch(startUploadImg(uid, 'users' ,file, []))
         .then( resp => {
