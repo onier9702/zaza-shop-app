@@ -120,7 +120,7 @@ export const EditProduct = () => {
                       setTimeout(() => {
                           dispatch(removeMsgGreen());
                       }, 1700);
-                      navigate(-1);
+                      navigate('/pri/user');
                   } else {
                       dispatch( setMsgRed(resp.msg));
                       setTimeout(() => {

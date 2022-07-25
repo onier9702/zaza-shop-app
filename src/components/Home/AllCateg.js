@@ -29,7 +29,7 @@ export const AllCateg = ({category}) => {
   };
 
   return (
-    <div className="cuadro-categ">
+    <div className="cuadro-categ"> 
         <span onClick={handleClickCat} id={category.id} >{category.name}</span>
     </div>
   )

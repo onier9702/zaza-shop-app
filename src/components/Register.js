@@ -136,7 +136,7 @@ export const RegisterScreen = () => {
                     >Registrarme</button>
 
                     <div className="link">
-                    <Link to="/pub/login" className="link">Ir a Autenticarme</Link>
+                    <Link to="/pub/login" className="link">Ir a Iniciar Sesion</Link>
                     </div>
                 </form>
             </div>

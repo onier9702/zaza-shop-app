@@ -19,11 +19,11 @@ export const MobileNav = ({isMob,closeMenu}) => {
             </li>
             
             <li>
-                <Link  onClick={() => (isMob) && closeMenu() }  to="/pub/login" className="link" >Autenticarse</Link>
+                <Link  onClick={() => (isMob) && closeMenu() }  to="/pub/login" className="link" >Iniciar Sesion</Link>
             </li>
 
             <li>
-                <Link  onClick={() => (isMob) && closeMenu() } to="/pub/register" className="link" >Registrarse</Link>
+                <Link  onClick={() => (isMob) && closeMenu() } to="/pub/register" className="link" >Registrarme</Link>
             </li>
 
             <li>

@@ -7,6 +7,9 @@
     margin-right: 15px;
     width: fit-content;
 }
+.cuadro-categ span{
+    display: inline-flex;
+}
 .cuadro-categ:hover , .cuadro-categ:focus{
     background-color: #ffff3f;
     border-color: #eeef20;

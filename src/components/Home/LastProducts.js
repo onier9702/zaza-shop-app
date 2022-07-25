@@ -6,7 +6,7 @@ import { findActiveProduct } from '../../actions/homeEvents';
 import { getTokenFromLocalStorage } from '../../helpers/getTokenFromLocalStorage';
 
 // import '../../styles/HomeAllProducts.css';
-import '../../styles/home/Carousel2.css';
+import '../../styles/home/Carousel2.css'; 
 
 
 export const LastProducts = ({product}) => {

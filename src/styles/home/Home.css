@@ -73,7 +73,7 @@
 
 }
 .show-categories .slider{
-    height: 52px;
+    /* height: 52px; */
     overflow-x: auto; 
     /* width: fit-content; */
 }

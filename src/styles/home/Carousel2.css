@@ -15,7 +15,7 @@
 
 .slider {
     width: fit-content;
-    height: auto;
+    /* height: auto; */
     /* margin-bottom: 20px; */
     overflow-x: auto; 
 
@@ -25,9 +25,9 @@
     background: transparent; /* make scrollbar transparent */
 }
  .slides {
-    width: fit-content;
-    height: 350px;
     display: flex;
+    width: fit-content;
+    /* height: 350px; */
 }
 .slides input {
     display: none;
