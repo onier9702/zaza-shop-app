@@ -128,7 +128,7 @@ const setAllResultsSearched = ( results = [] ) => ({
     payload: results
 });
 
-const startFetchLikedProducts = (limit , since ) => {
+const startFetchLikedProducts = (limit , since ) => { 
 
     return async(dispatch) => {
 
@@ -137,15 +137,16 @@ const startFetchLikedProducts = (limit , since ) => {
 
         if ( data.msg){
             console.log(data.msg);
-            return {
-                ok: false,
-            }
+            // return {
+            //     ok: false,
+            // }
         } else {
-            return {
-                ok: true,
-                total: data.total,
-                products: data.products
-            }
+            dispatch( setLikedProducts(data.products));
+            // return {
+            //     ok: true,
+            //     // total: data.total,
+            //     // products: data.products
+            // }
         }
 
     };

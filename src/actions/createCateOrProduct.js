@@ -69,7 +69,7 @@ const startUploadImg = ( id = '', collection = '', file, products = [] ) => {
     return async(dispatch) => {
 
         try {
-            const resp = await fetchUploadImg(`upload/${collection}/${id}`, file);
+            const resp = await fetchUploadImg(`upload/${collection}/${id}`, file); 
             const data = await resp.json();
             console.log(data); 
 

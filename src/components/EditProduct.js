@@ -11,6 +11,7 @@ import { AllCateSelections } from './AllCateSelections';
 import { startUpdateProduct } from '../actions/userProduct';
 import { startUploadImg } from '../actions/createCateOrProduct';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export const EditProduct = () => {
 
@@ -96,9 +97,21 @@ export const EditProduct = () => {
         inputImg.current.click();
     };
     const handleImgChange = (e) => {
-        const file = e.target.files;
+        const file = e.target.files; 
 
         if (file) {
+
+            for ( let i = 0; i < 3; i++){
+
+                if ( file[i]){
+
+                    if ( file[i].size > 100000 ){
+                        return Swal.fire('Nota', 'Debe subir fotos de no mas de 1 MB', 'warning');
+                    };
+                } else break;
+
+            };
+            // console.log('All Photos are fulfill');
             dispatch( startUploadImg(id, 'products',file, products) )
               .then( resp => {
                   if (resp.ok){

@@ -79,8 +79,12 @@ export const MyProfile = () => {
 
   const handleImgChange = (e) => {
     const file = e.target.files; 
-    if (file){
-      dispatch(startUploadImg(uid, 'users' ,file, []))
+    // console.log(file);
+    if ( file ){
+
+      if ( file[0].size < 100000){
+        // console.log('Yes Picture fulfill with size');
+        dispatch(startUploadImg(uid, 'users' ,file, []))
         .then( resp => {
           if (resp.ok){
             dispatch( setMsgGreen('Imagen de Usuario posteada correctamente'));
@@ -95,7 +99,14 @@ export const MyProfile = () => {
           }
         })
         .catch( err => console.log(err));
+  
+  
+      } else {
+        Swal.fire('Nota', 'Debe subir fotos de no mas de 1 MB', 'warning');
+      };
+
     };
+
   };
 
   // Click See User Products
