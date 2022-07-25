@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 
 import { fetchNotToken, fetchWithToken } from "../helpers/fetch";
+import { getTokenFromLocalStorage } from "../helpers/getTokenFromLocalStorage";
 import { types } from "../types/types";
 import { finishLoadingPage, startLoadingPage } from "./ui";
 
@@ -22,7 +23,9 @@ const startChecking = () => {
             localStorage.setItem('uid', body.user.uid);
 
         } else {
-            // Swal.fire('Error', body.msg, 'error');
+            if ( getTokenFromLocalStorage() ){
+                localStorage.clear();
+            }
             dispatch(checkingFinish());
         }
 

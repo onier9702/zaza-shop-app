@@ -4,7 +4,7 @@ import { types } from "../types/types";
 
 const initialState = {
 
-    likeAllproducts: [],
+    likeAllProducts: [],
     activeLikeProduct: {}
 }
 
@@ -17,7 +17,7 @@ export const likeProdReducer = (state = initialState, action) => {
                 likeAllProducts: [...action.payload]
             }
 
-        case types.likeActiveProduct:
+        case types.activeLikeProduct:
             return {
                 ...state,
                 activeLikeProduct: {...action.payload}

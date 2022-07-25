@@ -136,7 +136,7 @@ const startFetchLikedProducts = (limit , since ) => {
         const data = await resp.json();
 
         if ( data.msg){
-            Swal.fire('Error', data.msg, 'error');
+            console.log(data.msg);
             return {
                 ok: false,
             }

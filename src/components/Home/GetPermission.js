@@ -43,12 +43,11 @@ export const GetPermission = () => {
                 <p>  Registrarse y tener su cuenta de la app.</p>
             </li>
             <li>
-                <p>  Cumplir reglas que no afecten la app por mal intencion,
-                    ya que esto es con servidor gratis que solo permite 1Gb.</p>
+                <p>  Iniciar Sesion.</p>
             </li>
 
             <li>
-                <p>  Contactar con Administrador al Whatsapp para obtener Permiso Vendedor </p>
+                <p>  Contactar con Administrador al Whatsapp para obtener Permiso Vendedor. </p>
             </li>
         </ol>
 

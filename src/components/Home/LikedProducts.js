@@ -25,7 +25,7 @@ export const LikedProducts = () => {
             } )
             .catch( err => console.log(err))
 
-    }, [dispatch])
+    }, [products])
     
   return (
     <div style={{paddingLeft: 30}}  className="carousel-liked">
