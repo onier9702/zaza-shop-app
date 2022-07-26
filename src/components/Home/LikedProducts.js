@@ -15,7 +15,8 @@ export const LikedProducts = () => {
     useEffect(() => {
 
         let prodsLength = products.length;
-        let since = GetRandomNumbers(prodsLength - 4);
+        let since = GetRandomNumbers( 0, prodsLength - 9 ); // 7-11
+        console.log(since);
         
         dispatch( startFetchLikedProducts(5, since) );
 

@@ -1,7 +1,5 @@
 
-// const baseUrl = process.env.REACT_APP_API_URL; // put this on production
-const baseUrl = 'https://zaza-shop.herokuapp.com/api';
-// const baseUrl = 'https://localhost:3000/api';
+const baseUrl = process.env.REACT_APP_API_URL; // put this on production
 
 const fetchNotToken = ( endpoint, data, method = 'GET' ) => {
 
