@@ -3,12 +3,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+
+import '../styles/auth/UserProfile.css';
 import { getUserProfileData, setLoginUser } from '../actions/auth';
 import { startUploadImg } from '../actions/createCateOrProduct';
 import { removeMsgGreen, removeMsgRed, setMsgGreen, setMsgRed } from '../actions/ui';
 import { setAllOwnProducts } from '../actions/userProduct';
 
-import '../styles/auth/UserProfile.css';
 import { AllOwnProds } from './Home/AllOwnProds';
 // import { MyOwnProducts } from './Home/MyOwnProducts';
 

@@ -93,6 +93,10 @@ export const Home = () => {
         <LikedProducts />
       </div>
 
+      <div className="div-reservedRights">
+        <h5>App en desarrollo por React  @Ing.Onier</h5>
+      </div>
+
     </div>
   )
 }

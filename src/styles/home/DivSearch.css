@@ -16,9 +16,12 @@
 }
 
 @media ( max-width: 430px) {
+    .divBusqueda{
+        padding: 7px;
+    }
     .divBusqueda .div-prodFounded{
         flex-direction: column;
-        width: 92vw;
+        width: 100vw;
 
     }
 }

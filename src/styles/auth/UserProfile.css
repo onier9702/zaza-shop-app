@@ -118,7 +118,8 @@
 }
 
 .div-profile .divButtonSeeProducts{
-    padding: 0px 30px 50px 30px;
+    margin-bottom: 40px;
+    padding: 0px 30px 80px 30px;
     width: 100%;
 }
 .div-profile .divButtonSeeProducts button {

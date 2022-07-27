@@ -10,18 +10,18 @@
     display: flex;
     flex-direction: row;
     padding: 15px;
-    
 }
 .cuadro-product .img{
-    display: flex;
-    /* height: 400px; */
+    /* display: flex; */
+    /* max-height: 50vh; */
     width: fit-content;
 }
 .cuadro-product .img img {
     border-radius: 20px;
     padding: 7px;
     margin-right: 10px;
-    width: 25vw;
+    max-height: 55vh;
+    width: 45vw;
 }
 .cuadro-product .info-prod{
     display: flex;
@@ -36,12 +36,14 @@
 
 @media ( max-width: 430px) {
     .cuadro-product{
+        flex-direction: column;
         margin-bottom: 20px;
-        padding: 5px;
+        padding: 0px;
     }
     .cuadro-product .img img {
         padding: 5px;
         margin-right: 5px;
-        width: 48vw;
+        max-height: 60vh;
+        width: 50vw;
     }
 }
