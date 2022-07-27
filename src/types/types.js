@@ -22,6 +22,8 @@ export const types = {
     categoryLoadAll: '[category] Load All from DB',
     categoryActive: '[category] Active Category',
     categoryNewCate: '[category] New Cate Added',
+    categoryProdsBelongCate: '[category] Prods Belong Cate',
+    categoryClearProdsBelongCate: '[category] Clear Prods Belong Cate',
 
     productLoadAll: '[product] Load All from DB',
     productActive: '[product] Active Product',

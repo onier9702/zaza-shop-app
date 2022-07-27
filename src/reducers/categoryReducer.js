@@ -12,7 +12,10 @@ import { types } from "../types/types";
 const initialState = {
 
     categories: [],
-    activeCategory: {}
+    activeCategory: {},
+    prodsBelongCate: [],
+    total: 0
+    // page: 0
 }
 
 export const categoryReducer = (state = initialState, action) => {
@@ -34,6 +37,20 @@ export const categoryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 categories: action.payload
+            }
+        
+        case types.categoryProdsBelongCate:
+            return {
+                ...state,
+                prodsBelongCate: [...action.payload.prods],
+                total: action.payload.total
+                // page: state.page + 1
+            }
+        case types.categoryClearProdsBelongCate:
+            return {
+                ...state,
+                prodsBelongCate: [],
+                // page: 0
             }
     
         default:

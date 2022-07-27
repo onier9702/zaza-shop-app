@@ -4,7 +4,7 @@ const baseUrl = process.env.REACT_APP_API_URL; // put this on production
 const fetchNotToken = ( endpoint, data, method = 'GET' ) => {
 
     const url = `${ baseUrl }/${ endpoint }`;
-    console.log(url);
+    // console.log(url);
 
     if ( method === 'GET' ) {
         return fetch( url );
@@ -22,7 +22,7 @@ const fetchNotToken = ( endpoint, data, method = 'GET' ) => {
 const fetchWithToken = ( endpoint, data, method = 'GET' ) => {
 
     const url = `${ baseUrl }/${ endpoint }`;
-    console.log(url);
+    // console.log(url);
 
     const token = localStorage.getItem('token') || '';
     // console.log(token);
@@ -50,7 +50,7 @@ const fetchWithToken = ( endpoint, data, method = 'GET' ) => {
 const fetchUploadImg = ( endpoint, file ) => {
 
     const url = `${ baseUrl }/${ endpoint }`;
-    console.log(url);
+    // console.log(url);
 
     const token = localStorage.getItem('token') || '';
     // console.log(token);

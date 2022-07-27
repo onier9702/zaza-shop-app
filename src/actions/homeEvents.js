@@ -94,6 +94,39 @@ const setActiveCategory = ( cate = {} ) => ({
     payload: cate
 });
 
+// Prods Belong one Cate
+const startFetchProdsBelongCate = (id = '', /* previewProds = []*/ page = 0) => {
+
+    return async(dispatch) => {
+
+        try {
+
+            const resp = await fetchNotToken(`products/perCate/${id}?limit=2&since=${page*2}`);
+            const data = await resp.json();
+
+            if (data.products){
+                dispatch( setProdsBelongOneCate(data.products, data.total) );
+            };
+            
+        } catch (error) {
+            console.log(error);
+        }
+
+
+    };
+
+};
+
+const setProdsBelongOneCate = (prods = [], total) => ({
+    type: types.categoryProdsBelongCate,
+    payload: {
+        prods,
+        total
+    }
+});
+
+const clearProdsBelongCate = () => ({ type: types.categoryClearProdsBelongCate });
+
 const startSearch = ( regex = '' ) => {
 
     return async(dispatch) => {
@@ -166,5 +199,7 @@ export {
     startSearch,
     setAllProducts,
     startFetchLikedProducts,
-    setLikedProducts
+    setLikedProducts,
+    startFetchProdsBelongCate,
+    clearProdsBelongCate
 }

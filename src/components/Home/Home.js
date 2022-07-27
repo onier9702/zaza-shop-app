@@ -1,18 +1,18 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { startSearch } from '../../actions/homeEvents';
-import { removeMsgRed, setMsgRed } from '../../actions/ui';
-import { getTokenFromLocalStorage } from '../../helpers/getTokenFromLocalStorage';
-import { useForm } from '../../hooks/useForm';
 
 import '../../styles/home/Home.css';
+import { useForm } from '../../hooks/useForm';
+// import { removeMsgRed, setMsgRed } from '../../actions/ui';
+import { getTokenFromLocalStorage } from '../../helpers/getTokenFromLocalStorage';
 import { Logo } from '../Logo';
 import { AllCateg } from './AllCateg';
 import { CarouselProducts } from './CarouselProducts';
 import { LikedProducts } from './LikedProducts';
-import { Search } from './Search';
+// import { Search } from './Search';
+import { clearProdsBelongCate, startSearch } from '../../actions/homeEvents';
 
 export const Home = () => {
 
@@ -26,6 +26,11 @@ export const Home = () => {
   });
 
   const { terminus } = formValue;
+
+  useEffect(() => {
+    dispatch( clearProdsBelongCate() );
+  }, [])
+  
   
   const handleSubmit = (e) => {
 
