@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import '../styles/auth/UserProfile.css';
@@ -274,6 +274,12 @@ export const MyProfile = () => {
         <button type="button" className="btn btn-info">Ver mis Productos</button>
       </div>
       
+      {
+        ( !(role === 'USER_ROLE') &&  <div className="goToSale">
+                                        <span>Desea Vender Algo ?</span>
+                                        <Link to="/pri/newProduct" className="link">Agregar Producto</Link>
+                                      </div> )
+      }
 
     </div>
   )

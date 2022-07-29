@@ -9,6 +9,7 @@ import { authProprietor } from '../reducers/proprietor';
 import { searchReducer } from '../reducers/searchReducer';
 import { userProdReducer } from '../reducers/userProdReducer';
 import { likeProdReducer } from '../reducers/likeReducer';
+import { prodsBelongCateApi } from '../api/prodsBelongCateApi';
 
 export default configureStore({
 
@@ -21,6 +22,11 @@ export default configureStore({
     search: searchReducer,
     userProd: userProdReducer,
     like: likeProdReducer,
+
+    [prodsBelongCateApi.reducerPath]: prodsBelongCateApi.reducer,
+
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+    .concat( prodsBelongCateApi.middleware )
   
 })

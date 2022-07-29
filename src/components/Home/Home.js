@@ -19,7 +19,7 @@ export const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { categories } = useSelector(state => state.category);
-  // const { msgRed } = useSelector(state => state.ui);
+  const { name } = useSelector(state => state.auth);
 
   const [formValue, handleInputChange, reset] = useForm({
     terminus: ''
@@ -50,17 +50,27 @@ export const Home = () => {
 
   };
 
+  const handleIconUserProfile = () => {
+    if (name){
+      navigate('/pri/user');
+    } else {
+      navigate('/pub/login')
+    };
+  };
+
   return (
 
     <div >
       <div className="home">
-
-        <Logo />
+        <div className="header-home">
+          <Logo />
+          <i className="bi bi-person-square" onClick={handleIconUserProfile}  ></i>
+        </div>
         <form className="form-search" 
                     onSubmit={handleSubmit}>
             
             <div className="div-search">
-              <input type="text" className="form-control" 
+              <input type="text" className="form-control"  
                     name="terminus"
                     onChange={handleInputChange}
                     value={terminus}

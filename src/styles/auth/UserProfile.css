@@ -118,12 +118,22 @@
 }
 
 .div-profile .divButtonSeeProducts{
-    margin-bottom: 40px;
-    padding: 0px 30px 80px 30px;
+    margin-bottom: 5px;
+    padding: 0px 30px 15px 30px;
     width: 100%;
 }
 .div-profile .divButtonSeeProducts button {
     width: 100%;
+}
+.div-profile .goToSale{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 30px 60px 30px;
+}
+.div-profile .goToSale .link{
+    border-bottom: 1px solid black;
 }
 
 @media (max-width: 680px){

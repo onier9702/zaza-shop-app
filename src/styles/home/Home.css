@@ -6,44 +6,59 @@
     /* overflow-x: hidden; */
 }
 .home{
-    display: inline-flex;
+    /* display: inline-flex; */
     margin-bottom: 30px;
     margin-top: 20px;
     width: 100%;
 }
-
-.home .logo {
-    display: inline-flex;  
-    margin-left: 15px;
+.home .header-home{
+    display: flex;
+    justify-content: space-between;
+}
+.home .header-home i{
+    color: green;
+    margin-right: 15px;
+    padding-bottom: 20px;
+}
+.home .header-home i:hover{
+    color: grey;
+    cursor: pointer;
 }
 
-.home .logo li {
+.home .header-home .logo {
+    display: inline-flex;  
+    margin: 0px 0px 10px 15px;
+    padding-top: 10px;
+}
+
+.home .header-home .logo li {
     margin-right: 2.5px;
     list-style: none;
 }
 
-.home .logo li  .first-letter{
+.home .header-home .logo li  .first-letter{
     color: red;
 }
-.home .logo li  .second-letter{
+.home .header-home .logo li  .second-letter{
     color: blue;
 }
-.home .logo li .third-letter{
+.home .header-home .logo li .third-letter{
     color: yellow;
 }
-.home .logo li .fourth-letter{
+.home .header-home .logo li .fourth-letter{
     color: green;
 }
 
 .home .form-search {
-    width: fit-content;
-    position: absolute;
-    right: 14px;
+    width: 100%;
+    /* position: absolute;
+    right: 14px; */
 }
 .home .form-search .div-search{
     border: 0.8px solid grey;
     display: inline-flex;
-    width: 200px;
+    margin-left: 15px;
+    width: 300px;
 }
 .home .form-search .div-search input{
     border: none;

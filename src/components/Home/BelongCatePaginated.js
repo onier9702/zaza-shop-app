@@ -1,19 +1,22 @@
 
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { ProdsBelongCate } from './ProdsBelongCate';
+// import React from 'react';
+// import { useSelector } from 'react-redux';
 
-export const BelongCatePaginated = () => {
+// import { useGetProductsPaginatedQuery } from '../../api/prodsBelongCateApi';
+// import { ProdsBelongCate } from './ProdsBelongCate';
 
-    const {prodsBelongCate} = useSelector( state => state.category);
+// export const BelongCatePaginated = ({id, page}) => {
+    
+//     const { data, isLoading } = useGetProductsPaginatedQuery({id, page});
+//     console.log(data);
 
-  return (
-    <div>
-        {
-            prodsBelongCate.map( p => (
-                <ProdsBelongCate key={p.id} product={p} />
-            ))
-        }
-    </div>
-  )
-}
+//   return (
+//     <div>
+//         {
+//             ( data.products ) && data.products.map( p => (
+//                 <ProdsBelongCate key={p.id} product={p} />
+//             ))
+//         }
+//     </div>
+//   )
+// }

@@ -9,13 +9,16 @@ import { startFetchProdsBelongCate } from '../../actions/homeEvents';
 import { getTokenFromLocalStorage } from '../../helpers/getTokenFromLocalStorage';
 // import { BelongCatePaginated } from './BelongCatePaginated';
 import { ProdsBelongCate } from './ProdsBelongCate';
+import { BelongCatePaginated } from './BelongCatePaginated';
+import { useGetProductsPaginatedQuery } from '../../api/prodsBelongCateApi';
+
 
 export const SingleCategoryHome = () => {
     
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { activeCategory, prodsBelongCate, total } = useSelector( state => state.category);
-  const { name } = activeCategory;
+  const { activeCategory /*prodsBelongCate, total*/ } = useSelector( state => state.category);
+  const { name, id } = activeCategory;
   // const { products } = useSelector(state => state.product);
 
   // const [previewProds, setPreviewProds] = useState(prodsBelongCate);
@@ -28,11 +31,21 @@ export const SingleCategoryHome = () => {
     
   }, [name, navigate])
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    dispatch( startFetchProdsBelongCate(activeCategory.id,/* previewProds,*/ page) );
+  //   dispatch( startFetchProdsBelongCate(id,/* previewProds,*/ page) );
     
-  }, [setPage, dispatch, page]);
+  // }, [setPage, dispatch, page]);
+
+    
+  const { data, isLoading } = useGetProductsPaginatedQuery({id, page});
+  let products = [];
+  let total;
+  if (data){
+    products = data.products;
+    total    = data.total; 
+  }
+  // console.log(data);
 
   const handleSeeMore = () => {
     setPage(page + 1);
@@ -56,13 +69,25 @@ export const SingleCategoryHome = () => {
         <div className="info-category">
 
           <h3 style={{color: '#219ebc', marginBottom: 18}} >{name}</h3>
-          
           {
+            (products) && products?.map( p => (
+                <ProdsBelongCate key={p.id} product={p} />
+            ))
+          }
+          
+          {/* {
             prodsBelongCate.map( prod => (
                 <ProdsBelongCate key={prod.id} product={prod} />
             ))
-          }
-
+          } */}
+        {/* <BelongCatePaginated id={id} page={page} /> */}
+        {/* {
+          useEffect(() => {
+    
+            <BelongCatePaginated id={id} page={page} />
+            
+          }, [id,page])
+        } */}
         </div>
 
         <div className="div-buttons">
